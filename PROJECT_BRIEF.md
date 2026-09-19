@@ -33,3 +33,8 @@ Reuse `/workspace/sites/yusuf-portfolio` and the private GitHub repository `Mobo
 
 ## Current phase
 Establish the repository baseline and push the starter with a useful README and this brief. Then build the content structure and reusable routes. This phase is about working foundations; the final cinematic design and project media will follow. Keep Yusuf informed about what actually works, what is saved and what remains unfinished.
+
+## Homepage direction agreed in the main conversation
+Use a split-screen desktop layout inspired by the supplied Caverzasio screenshots. Large name at top left; a stationary personal panel with manual dotted slides for introduction, experience and interests; contact links bottom left. The right column contains large project media with concise captions, moving down very slowly while allowing manual scrolling. Pause on hover and interaction, provide a pause control and respect reduced-motion preferences. Use simple top navigation instead of the rotating central menu. Mobile uses normal document scrolling. Detailed case-study design comes later.
+
+The current pass is an unpublished layout and interaction prototype. User portrait and project photographs have not yet been supplied. Clearly labelled image spaces are temporary and must be replaced before publication. Do not use the reference screenshots as project media. Email and LinkedIn destinations require confirmation.

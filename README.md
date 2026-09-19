@@ -32,3 +32,8 @@ GitHub stores source history. A GitHub push does not publish the Site. Preserve 
 
 ## Phase status
 The baseline is preserved in Git history. The foundation adds four sourced project records, one IBM experience record, a homepage, a project index and a shared case-study route with 404 handling. See [docs/CONTENT.md](docs/CONTENT.md) for editing and provenance. Final cinematic styling, media, complete evidence and publication remain future work.
+
+## Homepage prototype
+`components/portfolio-home.tsx` provides the fixed personal panel, manual introduction slides and slow project feed. `content/profile.ts` holds editable introduction copy, media slots and contact destinations. Desktop motion pauses on hover, focus, wheel, touch or pointer interaction; manual interaction requires an explicit restart. It stops at the end, supports replay and is disabled for reduced motion or small/short viewports.
+
+Photograph spaces and unset contact labels are intentional prototype placeholders, not completed content. They must be resolved before publication. The case-study routes remain the existing foundation. No Site has been published.
