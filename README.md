@@ -18,8 +18,8 @@ Dependencies are already installed in the managed checkout. Runtime-specific gui
 ## Structure
 - `app/`: route components and shared layout.
 - `components/`: reusable presentation and installed UI primitives.
-- `content/`: planned typed project and experience records.
-- `/projects/[slug]`: planned shared case-study route.
+- `content/`: typed project and experience records.
+- `/projects/[slug]`: shared case-study route.
 - `.openai/hosting.json`: existing private Site identity. Never create a duplicate.
 
 No application database or admin dashboard. Unused database helpers remain from the starter; D1 and R2 bindings are null.
@@ -31,4 +31,4 @@ Read the current master Google Doc linked in the brief before importing content.
 GitHub stores source history. A GitHub push does not publish the Site. Preserve the registered Site for later publication. Never commit credentials, environment files, dependencies, local runtime state or build output.
 
 ## Phase status
-Baseline contains the original starter, this README and the brief. Typed records and reusable routes follow. Final cinematic styling, media, complete evidence and publication remain future work.
+The baseline is preserved in Git history. The foundation adds four sourced project records, one IBM experience record, a homepage, a project index and a shared case-study route with 404 handling. See [docs/CONTENT.md](docs/CONTENT.md) for editing and provenance. Final cinematic styling, media, complete evidence and publication remain future work.
