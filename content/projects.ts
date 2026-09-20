@@ -1,4 +1,5 @@
 import type { Project } from "./types";
+import { projectMedia } from "./project-media";
 import { masterSource } from "./source";
 
 // Provisional order, pending the user's project media and reports.
@@ -11,7 +12,7 @@ export const projects: Project[] = [
     decisions: ["Selected a four-wheel skid-steer mobility architecture.", "Adapted the bucket drum collection principle used in NASA RASSOR concepts to the team's manufacturing resources and rover constraints."],
     teamOutcomes: ["Preliminary Design Report: 73/100, Grade A.", "Won Best CDR at the final competition."],
     evidenceLimits: ["Further final-build, test and competition evidence awaits the project reports and media archive."],
-    tags: ["Mechanical design", "CAD / CAM", "Leadership"], media: [], source: masterSource,
+    tags: ["Mechanical design", "CAD / CAM", "Leadership"], media: projectMedia["olympus-advanced"], source: masterSource,
   },
   {
     slug: "dr-hex", title: "DR-Hex", period: "March 2025 to June 2025",
@@ -21,7 +22,7 @@ export const projects: Project[] = [
     decisions: ["Adapted an RHex-inspired architecture to the project constraints.", "Combined printed parts and PVC reinforcement to balance compliance with structural support."],
     teamOutcomes: ["Built and demonstrated an integrated robotic platform combining locomotion, sensing and a voice-based triage concept."],
     evidenceLimits: ["watsonx.ai and watsonx.data integration was at a surface level; no quantified field-performance claim is made."],
-    tags: ["Robotics", "Prototyping", "Systems integration"], media: [], source: masterSource,
+    tags: ["Robotics", "Prototyping", "Systems integration"], media: projectMedia["dr-hex"], source: masterSource,
   },
   {
     slug: "olympus-basic", title: "Olympus Basic", period: "November 2024 to July 2025",

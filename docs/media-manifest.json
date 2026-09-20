@@ -1,0 +1,62 @@
+[
+  {
+    "original": "55473072337_9be16270b7_k.JPG",
+    "path": "public/media/olympus-advanced/rover-sand.webp",
+    "caption": "Final rover on the competition course."
+  },
+  {
+    "original": "55473072037_da614107d1_k.JPG",
+    "path": "public/media/olympus-advanced/rover-bench.webp",
+    "caption": "Final build: chassis, mobility and sensing."
+  },
+  {
+    "original": "55473072287_4a39d53e16_k.JPG",
+    "path": "public/media/olympus-advanced/rover-terrain.webp",
+    "caption": "Rover on the sand course."
+  },
+  {
+    "original": "55474175943_ee17533bce_k.JPG",
+    "path": "public/media/olympus-advanced/rover-adjustment.webp",
+    "caption": "Hands-on adjustment of the rover."
+  },
+  {
+    "original": "55474240014_59e5ba6bda_k.JPG",
+    "path": "public/media/olympus-advanced/rover-preparation.webp",
+    "caption": "Team preparation and hardware checks."
+  },
+  {
+    "original": "55474453650_572f7f703c_k.JPG",
+    "path": "public/media/olympus-advanced/team.webp",
+    "caption": "Team MarshGazers with Olympus Advanced."
+  },
+  {
+    "original": "Hexapod Isometric View.JPG",
+    "path": "public/media/dr-hex/hexapod-isometric.webp",
+    "caption": "DR-Hex: the assembled team prototype."
+  },
+  {
+    "original": "Hexapod Side Profile.JPG",
+    "path": "public/media/dr-hex/hexapod-side.webp",
+    "caption": "Side profile showing the compliant leg architecture."
+  },
+  {
+    "original": "4view.png",
+    "path": "public/media/dr-hex/cad-views.webp",
+    "caption": "Mechanical design in CAD."
+  },
+  {
+    "original": "Riyaadh Sitting Cropped.jpg",
+    "path": "public/media/dr-hex/test-scene.webp",
+    "caption": "Physical test scene."
+  },
+  {
+    "original": "Heat Signature Cropped.jpg",
+    "path": "public/media/dr-hex/slam-map.webp",
+    "caption": "Corresponding SLAM visualisation."
+  },
+  {
+    "original": "RHex Image.jpg",
+    "path": "public/media/dr-hex/rhex-reference.webp",
+    "caption": "Design inspiration: Boston Dynamics RHex, a separate robot used as a reference."
+  }
+]

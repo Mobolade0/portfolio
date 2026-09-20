@@ -1,5 +1,5 @@
 export interface Source { url: string; reviewedOn: string; modifiedAt: string; }
-export interface Media { kind: "image" | "video"; src: string; alt: string; caption?: string; }
+export interface Media { kind: "image" | "video"; src: string; alt: string; caption?: string; width?: number; height?: number; group?: string; }
 export interface Project {
   slug: string; title: string; period: string; role: string; summary: string;
   contributions: string[]; decisions: string[]; teamOutcomes: string[];
