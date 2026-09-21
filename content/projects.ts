@@ -41,7 +41,7 @@ export const projects: Project[] = [
     decisions: ["Moved from a four-finger servo concept toward a lighter compliant PLA gripper.", "Rejected acrylic and plywood finger concepts because of their mass and behaviour."],
     teamOutcomes: ["The compliant gripper adapted to and held the trunk in a working demonstration.", "Ascent was slower than intended; the overall demonstration was a partial success."],
     evidenceLimits: ["A complete climb, sensor deployment and return is not claimed."],
-    tags: ["Compliant mechanisms", "Mechanical design", "Iteration"], media: [], source: masterSource,
+    tags: ["Compliant mechanisms", "Mechanical design", "Iteration"], media: projectMedia["tree-climbing-robot"], source: masterSource,
   },
 ];
 export function getProject(slug: string) { return projects.find(project => project.slug === slug); }

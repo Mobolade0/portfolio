@@ -140,3 +140,7 @@ img, video { max-width: 100%; }
 .media-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
 .media-comparison .case-media { margin: 0; }
 @media (max-width: 600px) { .media-comparison { grid-template-columns: 1fr; gap: 28px; } }
+
+.gallery-project[data-project="tree-climbing-robot"] .project-visual { aspect-ratio: 1.05; background: #242829; }
+.gallery-project[data-project="tree-climbing-robot"] .project-visual img { object-fit: contain !important; }
+.case-media figcaption a { display: inline; text-decoration: underline; color: var(--foreground); }

@@ -6,7 +6,7 @@ function Points({ title, items }: { title: string; items: string[] }) {
 function MediaFigure({ media, eager = false }: { media: Media; eager?: boolean }) {
   return <figure className="case-media">
     {media.kind === "image" ? <a href={media.src} target="_blank" rel="noreferrer" aria-label={`Open full image: ${media.alt}`}><img src={media.src} alt={media.alt} width={media.width} height={media.height} loading={eager ? "eager" : "lazy"} /></a> : <video src={media.src} aria-label={media.alt} controls preload="metadata" />}
-    {media.caption && <figcaption>{media.caption}</figcaption>}
+    {media.caption && <figcaption>{media.caption}{media.documentSrc && <> <a href={media.documentSrc} target="_blank" rel="noreferrer">Open drawing PDF</a></>}</figcaption>}
   </figure>;
 }
 export function CaseStudy({ project }: { project: Project }) {

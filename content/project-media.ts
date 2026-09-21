@@ -1,6 +1,6 @@
 import type { Media } from "./types";
 
-// User-supplied media reviewed on 2026-09-20. First image is the homepage cover.
+// User-supplied media. First image is the homepage cover.
 export const projectMedia: Record<string, Media[]> = {
   "olympus-advanced": [
     {
@@ -102,6 +102,92 @@ export const projectMedia: Record<string, Media[]> = {
       "caption": "Design inspiration: Boston Dynamics RHex, a separate robot used as a reference.",
       "width": 686,
       "height": 386
+    }
+  ],
+  "tree-climbing-robot": [
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/assembled-prototype.webp",
+      "alt": "Assembled tree-climbing robot with two compliant grippers, vertical rods and electronics.",
+      "caption": "Assembled prototype with the later compliant grippers.",
+      "width": 1350,
+      "height": 1800
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/early-concept.webp",
+      "alt": "Annotated sketch of a two-gripper tree-climbing robot.",
+      "caption": "Initial concept: alternating upper and lower grippers.",
+      "width": 1218,
+      "height": 1800
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/climbing-sequence.webp",
+      "alt": "Six sketches illustrating the proposed alternating grip and climb sequence.",
+      "caption": "Proposed climbing sequence, from gripping to advancing the next gripper.",
+      "width": 1059,
+      "height": 1800
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/gripper-sketch.webp",
+      "alt": "Annotated sketch of the early geared rigid gripper.",
+      "caption": "Early gripper concept: geared actuation and rigid fingers.",
+      "width": 962,
+      "height": 859
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/rigid-gripper-drawing.webp",
+      "alt": "Dimensioned CAD drawing of the earlier rigid gripper.",
+      "caption": "Earlier iteration: rigid gripper CAD.",
+      "width": 1906,
+      "height": 1348,
+      "documentSrc": "/media/tree-climbing-robot/rigid-gripper-drawing.pdf"
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/rigid-prototype.webp",
+      "alt": "Red acrylic rigid gripper prototype with geared actuation.",
+      "caption": "Earlier iteration: the manufactured rigid gripper prototype.",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/compliant-prototype.webp",
+      "alt": "White compliant gripper with strings, servo and Arduino on a workbench.",
+      "caption": "Later iteration: lightweight compliant fingers actuated by strings.",
+      "width": 1350,
+      "height": 1800
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/assembly-drawing.webp",
+      "alt": "Dimensioned assembly drawing showing the robot with compliant grippers.",
+      "caption": "Later assembly design with compliant upper and lower grippers.",
+      "width": 1906,
+      "height": 1348,
+      "documentSrc": "/media/tree-climbing-robot/assembly-drawing.pdf"
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/lower-body-drawing.webp",
+      "alt": "CAD views of the lower body, compliant gripper and motor arrangement.",
+      "caption": "Lower-body design and motor arrangement.",
+      "width": 1906,
+      "height": 1348,
+      "documentSrc": "/media/tree-climbing-robot/lower-body-drawing.pdf"
+    },
+    {
+      "kind": "image",
+      "src": "/media/tree-climbing-robot/upper-body-drawing.webp",
+      "alt": "CAD views of the upper body with compliant fingers and ultrasonic sensors.",
+      "caption": "Upper-body design and ultrasonic sensor placement.",
+      "width": 1906,
+      "height": 1348,
+      "documentSrc": "/media/tree-climbing-robot/upper-body-drawing.pdf"
     }
   ]
 };

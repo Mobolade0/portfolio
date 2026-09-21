@@ -58,5 +58,59 @@
     "original": "RHex Image.jpg",
     "path": "public/media/dr-hex/rhex-reference.webp",
     "caption": "Design inspiration: Boston Dynamics RHex, a separate robot used as a reference."
+  },
+  {
+    "original": "Asseembly iso.JPG",
+    "path": "public/media/tree-climbing-robot/assembled-prototype.webp",
+    "caption": "Assembled prototype with the later compliant grippers."
+  },
+  {
+    "original": "TCR Design 1.jpg",
+    "path": "public/media/tree-climbing-robot/early-concept.webp",
+    "caption": "Initial concept: alternating upper and lower grippers."
+  },
+  {
+    "original": "Climbing Lore.jpg",
+    "path": "public/media/tree-climbing-robot/climbing-sequence.webp",
+    "caption": "Proposed climbing sequence, from gripping to advancing the next gripper."
+  },
+  {
+    "original": "Gripper 1.jpg",
+    "path": "public/media/tree-climbing-robot/gripper-sketch.webp",
+    "caption": "Early gripper concept: geared actuation and rigid fingers."
+  },
+  {
+    "original": "TCR-Gripper-1.pdf",
+    "path": "public/media/tree-climbing-robot/rigid-gripper-drawing.webp",
+    "caption": "Earlier iteration: rigid gripper CAD.",
+    "documentPath": "public/media/tree-climbing-robot/rigid-gripper-drawing.pdf"
+  },
+  {
+    "original": "Old gripper.JPG",
+    "path": "public/media/tree-climbing-robot/rigid-prototype.webp",
+    "caption": "Earlier iteration: the manufactured rigid gripper prototype."
+  },
+  {
+    "original": "Compliant v1.JPG",
+    "path": "public/media/tree-climbing-robot/compliant-prototype.webp",
+    "caption": "Later iteration: lightweight compliant fingers actuated by strings."
+  },
+  {
+    "original": "WholeAssembly.pdf",
+    "path": "public/media/tree-climbing-robot/assembly-drawing.webp",
+    "caption": "Later assembly design with compliant upper and lower grippers.",
+    "documentPath": "public/media/tree-climbing-robot/assembly-drawing.pdf"
+  },
+  {
+    "original": "LowerBody-Exploded.pdf",
+    "path": "public/media/tree-climbing-robot/lower-body-drawing.webp",
+    "caption": "Lower-body design and motor arrangement.",
+    "documentPath": "public/media/tree-climbing-robot/lower-body-drawing.pdf"
+  },
+  {
+    "original": "UpperBody.pdf",
+    "path": "public/media/tree-climbing-robot/upper-body-drawing.webp",
+    "caption": "Upper-body design and ultrasonic sensor placement.",
+    "documentPath": "public/media/tree-climbing-robot/upper-body-drawing.pdf"
   }
 ]
