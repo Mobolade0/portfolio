@@ -31,7 +31,7 @@ export const projects: Project[] = [
     contributions: ["Designed and built the tracked mobility platform and supported drive-system integration.", "Integrated a two-degree-of-freedom manipulator and Arduino-based Wi-Fi control.", "Developed an HTML and JavaScript operator interface and QR detection using Nicla Vision, MicroPython and OpenMV."],
     decisions: ["Used expert design-review feedback to refine the system and engineering decisions."],
     teamOutcomes: ["Second place nationally.", "Best Automation Award and Best Outreach Award."],
-    evidenceLimits: [], tags: ["Mechatronics", "Computer vision", "Teleoperation"], media: [], source: masterSource,
+    evidenceLimits: [], tags: ["Mechatronics", "Computer vision", "Teleoperation"], media: projectMedia["olympus-basic"], source: masterSource,
   },
   {
     slug: "tree-climbing-robot", title: "Tree Climbing Robot", period: "April 2024 to June 2024",

@@ -112,5 +112,35 @@
     "path": "public/media/tree-climbing-robot/upper-body-drawing.webp",
     "caption": "Upper-body design and ultrasonic sensor placement.",
     "documentPath": "public/media/tree-climbing-robot/upper-body-drawing.pdf"
+  },
+  {
+    "original": "WhatsApp Image 2025-08-07 at 12.13.33_68915254(1).jpg",
+    "path": "public/media/olympus-basic/rover-awards.webp",
+    "caption": "The Basic Stream rover with its competition awards."
+  },
+  {
+    "original": "54693083858_7f6bedfcc6_o(1).jpg",
+    "path": "public/media/olympus-basic/rover-ral-space.webp",
+    "caption": "Rover hardware at RAL Space."
+  },
+  {
+    "original": "54692863526_a214647619_o(1).jpg",
+    "path": "public/media/olympus-basic/team-ral-space.webp",
+    "caption": "Team members with the rover at RAL Space."
+  },
+  {
+    "original": "WhatsApp Image 2025-08-20 at 11.55.57_aa92faa5(1).jpg",
+    "path": "public/media/olympus-basic/rover-preparation.webp",
+    "caption": "Hands-on rover preparation and adjustments."
+  },
+  {
+    "original": "MarshGazers_Outreach_Pic_2.jpg",
+    "path": "public/media/olympus-basic/outreach.webp",
+    "caption": "Sharing the rover with visitors during outreach."
+  },
+  {
+    "original": "MarshGazers_Team_Pic_Globe_Background(1).jpg",
+    "path": "public/media/olympus-basic/team-globe.webp",
+    "caption": "Team MarshGazers, Basic Stream."
   }
 ]

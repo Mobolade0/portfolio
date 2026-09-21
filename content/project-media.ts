@@ -189,5 +189,55 @@ export const projectMedia: Record<string, Media[]> = {
       "height": 1348,
       "documentSrc": "/media/tree-climbing-robot/upper-body-drawing.pdf"
     }
+  ],
+  "olympus-basic": [
+    {
+      "kind": "image",
+      "src": "/media/olympus-basic/rover-awards.webp",
+      "alt": "Tracked MarshGazers rover displayed beside competition awards.",
+      "caption": "The Basic Stream rover with its competition awards.",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "kind": "image",
+      "src": "/media/olympus-basic/rover-ral-space.webp",
+      "alt": "Tracked rover supported on an orange stand in a RAL Space laboratory.",
+      "caption": "Rover hardware at RAL Space.",
+      "width": 1600,
+      "height": 1066
+    },
+    {
+      "kind": "image",
+      "src": "/media/olympus-basic/team-ral-space.webp",
+      "alt": "Three MarshGazers team members standing with the rover in a RAL Space laboratory.",
+      "caption": "Team members with the rover at RAL Space.",
+      "width": 1600,
+      "height": 1066
+    },
+    {
+      "kind": "image",
+      "src": "/media/olympus-basic/rover-preparation.webp",
+      "alt": "Team members working on the tracked rover outdoors.",
+      "caption": "Hands-on rover preparation and adjustments.",
+      "width": 1600,
+      "height": 1091
+    },
+    {
+      "kind": "image",
+      "src": "/media/olympus-basic/outreach.webp",
+      "alt": "MarshGazers members demonstrating the rover to visitors outdoors.",
+      "caption": "Sharing the rover with visitors during outreach.",
+      "width": 1600,
+      "height": 1068
+    },
+    {
+      "kind": "image",
+      "src": "/media/olympus-basic/team-globe.webp",
+      "alt": "Five MarshGazers team members standing beneath a large globe display.",
+      "caption": "Team MarshGazers, Basic Stream.",
+      "width": 1600,
+      "height": 1068
+    }
   ]
 };
