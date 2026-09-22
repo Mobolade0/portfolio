@@ -14,11 +14,15 @@ export function CaseStudy({ project }: { project: Project }) {
   return <article className="case-study"><header><p className="metadata">{project.period}</p>
     <h1>{project.title}</h1><p className="lead">{project.summary}</p><p>{project.role}</p></header>
     {project.media[0] && <MediaFigure media={project.media[0]} eager />}
+    {[{key: "cad", title: "CAD and mechanical design"}, {key: "prototype", title: "Wearable and testing"}, {key: "context", title: "Movement and routing references"}].map(group => {
+      const media = project.media.filter(item => item.group === group.key);
+      return media.length > 0 && <section key={group.key} aria-label={group.title}><h2>{group.title}</h2><div className="cad-gallery">{media.map(item => <MediaFigure key={item.src} media={item} />)}</div></section>;
+    })}
     <Points title="My contribution" items={project.contributions} />
     <Points title="Engineering decisions" items={project.decisions} />
     <Points title="Team outcomes" items={project.teamOutcomes} />
     <Points title="Evidence boundaries" items={project.evidenceLimits} />
-    {project.media.length > 1 && <section aria-label="Project media" className="case-gallery"><h2>Build and process</h2>{project.media.slice(1).filter(media => !media.group).map(media => <MediaFigure key={media.src} media={media} />)}</section>}
+    {project.media.slice(1).some(media => !media.group) && <section aria-label="Project media" className="case-gallery"><h2>Build and process</h2>{project.media.slice(1).filter(media => !media.group).map(media => <MediaFigure key={media.src} media={media} />)}</section>}
     {comparison.length > 0 && <section aria-labelledby="slam-comparison"><h2 id="slam-comparison">SLAM: scene and map</h2><div className="media-comparison">{comparison.map(media => <MediaFigure key={media.src} media={media} />)}</div></section>}
   </article>;
 }

@@ -142,5 +142,75 @@
     "original": "MarshGazers_Team_Pic_Globe_Background(1).jpg",
     "path": "public/media/olympus-basic/team-globe.webp",
     "caption": "Team MarshGazers, Basic Stream."
+  },
+  {
+    "original": "Final_Wearable_Front_View.jpeg",
+    "path": "public/media/exoskeleton/wearable-front.webp",
+    "caption": "Front view of the assembled wearable prototype."
+  },
+  {
+    "original": "exoskeleton_model_visualisation.jpg",
+    "path": "public/media/exoskeleton/model-visualisation.webp",
+    "caption": "Exoskeleton model visualisation."
+  },
+  {
+    "original": "thigh_adjustable_bracket.png",
+    "path": "public/media/exoskeleton/adjustable-thigh.webp",
+    "caption": "Adjustable thigh bracket."
+  },
+  {
+    "original": "thigh_bracket_CAD.png",
+    "path": "public/media/exoskeleton/thigh-bracket.webp",
+    "caption": "Thigh bracket CAD render."
+  },
+  {
+    "original": "calf_bracket_CAD.png",
+    "path": "public/media/exoskeleton/calf-bracket.webp",
+    "caption": "Calf bracket CAD render."
+  },
+  {
+    "original": "knee_cap_CAD.png",
+    "path": "public/media/exoskeleton/knee-cap.webp",
+    "caption": "Knee cap CAD render."
+  },
+  {
+    "original": "Final_Wearable_Side_View.jpeg",
+    "path": "public/media/exoskeleton/wearable-side.webp",
+    "caption": "Side view of the assembled wearable."
+  },
+  {
+    "original": "Final_Wearable_Top_View.jpeg",
+    "path": "public/media/exoskeleton/wearable-top.webp",
+    "caption": "Top view of the wearable and thigh-mounted hardware."
+  },
+  {
+    "original": "adam_emg_test.jpeg",
+    "path": "public/media/exoskeleton/emg-test.webp",
+    "caption": "EMG testing setup on the thigh."
+  },
+  {
+    "original": "routing_strategy.png",
+    "path": "public/media/exoskeleton/routing.webp",
+    "caption": "String routing between the thigh and calf brackets."
+  },
+  {
+    "original": "STS-Annotated.png",
+    "path": "public/media/exoskeleton/sit-to-stand.webp",
+    "caption": "Annotated phases of the sit-to-stand movement."
+  },
+  {
+    "original": "Leg-Muscles-Annotated.png",
+    "path": "public/media/exoskeleton/leg-muscles.webp",
+    "caption": "Anatomical reference: annotated leg muscles."
+  },
+  {
+    "original": "quadricep_muscles.png",
+    "path": "public/media/exoskeleton/quadriceps.webp",
+    "caption": "Anatomical reference: quadriceps and patella."
+  },
+  {
+    "original": "Screenshot 2026-05-22 at 13.04.43.png",
+    "path": "public/media/exoskeleton/movement-phases.webp",
+    "caption": "Reference illustration of the four sit-to-stand phases."
   }
 ]

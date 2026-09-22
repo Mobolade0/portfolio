@@ -145,3 +145,8 @@ img, video { max-width: 100%; }
 .gallery-project[data-project="tree-climbing-robot"] .project-visual { aspect-ratio: 1.05; background: #242829; }
 .gallery-project[data-project="tree-climbing-robot"] .project-visual img { object-fit: contain !important; }
 .case-media figcaption a { display: inline; text-decoration: underline; color: var(--foreground); }
+
+.cad-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.cad-gallery .case-media { margin: 0; min-width: 0; }
+.cad-gallery .case-media img { height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #2a2d2e; }
+@media (max-width: 600px) { .cad-gallery { grid-template-columns: 1fr; } }

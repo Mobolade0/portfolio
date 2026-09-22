@@ -239,5 +239,132 @@ export const projectMedia: Record<string, Media[]> = {
       "width": 1600,
       "height": 1068
     }
+  ],
+  "exoskeleton": [
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/wearable-front.webp",
+      "alt": "Front view of the assembled wearable prototype.",
+      "caption": "Front view of the assembled wearable prototype.",
+      "width": 1600,
+      "height": 1280
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/model-visualisation.webp",
+      "alt": "Exoskeleton model visualisation.",
+      "caption": "Exoskeleton model visualisation.",
+      "width": 1280,
+      "height": 683,
+      "group": "cad"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/adjustable-thigh.webp",
+      "alt": "Adjustable thigh bracket.",
+      "caption": "Adjustable thigh bracket.",
+      "width": 1600,
+      "height": 900,
+      "group": "cad"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/thigh-bracket.webp",
+      "alt": "Thigh bracket CAD render.",
+      "caption": "Thigh bracket CAD render.",
+      "width": 1600,
+      "height": 900,
+      "group": "cad"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/calf-bracket.webp",
+      "alt": "Calf bracket CAD render.",
+      "caption": "Calf bracket CAD render.",
+      "width": 1024,
+      "height": 576,
+      "group": "cad"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/knee-cap.webp",
+      "alt": "Knee cap CAD render.",
+      "caption": "Knee cap CAD render.",
+      "width": 1600,
+      "height": 900,
+      "group": "cad"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/wearable-side.webp",
+      "alt": "Side view of the assembled wearable.",
+      "caption": "Side view of the assembled wearable.",
+      "width": 1200,
+      "height": 1600,
+      "group": "prototype"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/wearable-top.webp",
+      "alt": "Top view of the wearable and thigh-mounted hardware.",
+      "caption": "Top view of the wearable and thigh-mounted hardware.",
+      "width": 1152,
+      "height": 1536,
+      "group": "prototype"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/emg-test.webp",
+      "alt": "EMG testing setup on the thigh.",
+      "caption": "EMG testing setup on the thigh.",
+      "width": 1200,
+      "height": 1600,
+      "group": "prototype"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/routing.webp",
+      "alt": "String routing between the thigh and calf brackets.",
+      "caption": "String routing between the thigh and calf brackets.",
+      "width": 654,
+      "height": 660,
+      "group": "context"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/sit-to-stand.webp",
+      "alt": "Annotated phases of the sit-to-stand movement.",
+      "caption": "Annotated phases of the sit-to-stand movement.",
+      "width": 1600,
+      "height": 1166,
+      "group": "context"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/leg-muscles.webp",
+      "alt": "Anatomical reference: annotated leg muscles.",
+      "caption": "Anatomical reference: annotated leg muscles.",
+      "width": 1600,
+      "height": 1068,
+      "group": "context"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/quadriceps.webp",
+      "alt": "Anatomical reference: quadriceps and patella.",
+      "caption": "Anatomical reference: quadriceps and patella.",
+      "width": 848,
+      "height": 1600,
+      "group": "context"
+    },
+    {
+      "kind": "image",
+      "src": "/media/exoskeleton/movement-phases.webp",
+      "alt": "Reference illustration of the four sit-to-stand phases.",
+      "caption": "Reference illustration of the four sit-to-stand phases.",
+      "width": 1386,
+      "height": 652,
+      "group": "context"
+    }
   ]
 };

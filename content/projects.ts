@@ -5,6 +5,13 @@ import { masterSource } from "./source";
 // Provisional order, pending the user's project media and reports.
 export const projects: Project[] = [
   {
+    slug: "exoskeleton", title: "Assistive Exoskeleton", period: "",
+    role: "",
+    summary: "A wearable exoskeleton project exploring assistance during sit-to-stand movement, from component CAD and string routing to an assembled prototype and EMG testing.",
+    contributions: [], decisions: [], teamOutcomes: [], evidenceLimits: [],
+    tags: ["Wearable robotics", "Mechanical design", "Prototyping"], media: projectMedia["exoskeleton"], source: masterSource,
+  },
+  {
     slug: "olympus-advanced", title: "Olympus Advanced", period: "November 2025 to July 2026",
     role: "Vice Team Captain and Mechanical Subteam Lead",
     summary: "A Mars rover developed with Team MarshGazers for the UKSEDS and Airbus Olympus Rover Trials Advanced Stream.",
