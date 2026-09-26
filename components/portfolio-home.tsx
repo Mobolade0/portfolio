@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { profile, profileSlides } from "@/content/profile";
 import type { Project } from "@/content/types";
 
+// Homepage sketch images. Add future sketch paths here.
+const projectSketches: Partial<Record<string, string>> = {
+  "dr-hex": "/media/dr-hex/hexapod-sketch-final.png",
+  "olympus-advanced": "/media/olympus-advanced/rover-sketch-advanced.png",
+  "olympus-basic": "/media/olympus-basic/rover-sketch-basic.png",
+};
+
 export function PortfolioHome({ projects }: { projects: Project[] }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -121,9 +128,22 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
         onKeyDown={event => { if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) pause(); }}>
         {projects.map((project, index) => {
           const media = project.media[0];
+          const sketch = media?.kind === "image" ? projectSketches[project.slug] : undefined;
           return <article className="gallery-project" key={project.slug} data-project={project.slug}>
-            <Link className="project-visual" href={`/projects/${project.slug}`} aria-label={`View ${project.title} case study`}>
+            <Link className={`project-visual${sketch ? " has-sketch" : ""}`} href={`/projects/${project.slug}`} aria-label={`View ${project.title} case study`}>
               {media?.kind === "image" ? <Image src={media.src} alt={media.alt} fill sizes="(max-width: 999px) 100vw, 54vw" unoptimized priority={index === 0} /> : media?.kind === "video" ? <video src={media.src} aria-label={media.alt} controls preload="metadata" /> : <div className="media-placeholder"><span className="placeholder-index" aria-hidden="true">0{index + 1}</span><div><span className="eyebrow">{project.tags[0]}</span><p>{project.title}</p><span className="image-note">Project photograph to follow</span></div></div>}
+              {sketch && (
+                <div className="project-sketch-layer" aria-hidden="true">
+                  <Image
+                    className="project-sketch"
+                    src={sketch}
+                    alt=""
+                    fill
+                    sizes="(max-width: 999px) 100vw, 54vw"
+                    unoptimized
+                  />
+                </div>
+              )}
               <span className="project-open" aria-hidden="true"><ArrowUpRight size={23} /></span>
             </Link>
             <div className="project-caption"><div><p className="eyebrow">0{index + 1} / {project.period}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3></div><div><p className="project-role">{project.role}</p><p className="project-summary">{project.summary}</p></div></div>
