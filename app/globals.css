@@ -973,3 +973,153 @@ select {
   font-family: "Tw Cen MT", Arial, sans-serif;
 
 }
+
+/* DR-Hex case study. Scoped to keep the home gallery and other projects intact. */
+.dr-hex-shell {
+  --background: #f3eee5;
+  --foreground: #211d19;
+  --muted: #62574c;
+  --border: #c9bfb1;
+  color-scheme: light;
+  background: var(--background);
+  color: var(--foreground);
+}
+.dr-hex-shell .site-nav,
+.dr-hex-shell .site-footer {
+  width: min(100% - 5rem, 100rem);
+}
+.dr-hex-shell .document-main {
+  width: 100%;
+  padding: 0;
+}
+.dr-hex-study .hex-hero {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+  width: min(100% - 5rem, 100rem);
+  min-height: min(52rem, calc(100svh - 5rem));
+  margin-inline: auto;
+  padding-block: clamp(3rem, 7vw, 7rem);
+}
+.hex-intro { min-width: 0; }
+.dr-hex-study h1 {
+  font-size: clamp(4rem, 8.5vw, 9rem);
+  line-height: 1.15;
+  margin: 1.25rem 0 2rem;
+  white-space: nowrap;
+}
+.hex-title {
+  display: inline-block;
+  padding: .08em .12em .12em 0;
+  animation: hex-ink-reveal 1.6s cubic-bezier(.22, 1, .36, 1) .15s both;
+}
+.dr-hex-study .hex-summary {
+  max-width: 29rem;
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  line-height: 1.5;
+  animation-delay: .4s;
+}
+.hex-facts {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  animation-delay: .6s;
+}
+.hex-facts dt {
+  color: var(--muted);
+  font-size: .875rem;
+  margin-bottom: .5rem;
+}
+.hex-facts dd { margin: 0; font-size: 1rem; }
+.hex-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-block: .5rem;
+  animation-delay: .8s;
+}
+.hex-enter { animation: hex-arrive 1s ease .15s both; }
+.hex-hero-image { min-width: 0; animation: hex-arrive 1.2s ease .5s both; }
+.dr-hex-study .case-media { margin: 0; min-width: 0; }
+.dr-hex-study .case-media img,
+.dr-hex-study .case-media video { border-radius: 0; }
+.dr-hex-study .case-media figcaption { font-size: .875rem; }
+.dr-hex-study .hex-block { margin: 0; padding: clamp(3rem, 7vw, 7rem) 0; }
+.hex-block-inner { width: min(100% - 5rem, 86rem); margin-inline: auto; }
+.hex-dark {
+  --background: #211d19;
+  --foreground: #f3eee5;
+  --muted: #c3b8aa;
+  --border: #51473d;
+  color-scheme: dark;
+  background: var(--background);
+  color: var(--foreground);
+}
+.hex-light { background: #f3eee5; color: #211d19; }
+.dr-hex-study .hex-block-inner section { margin: 0; }
+.dr-hex-study h2 {
+  font-family: "Poynter Display", Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  line-height: 1.2;
+  margin: 0 0 2rem;
+}
+.hex-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 7vw, 8rem);
+}
+.dr-hex-study ul { list-style: none; padding: 0; margin: 0; }
+.dr-hex-study li {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.hex-build-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem 2rem;
+  align-items: start;
+}
+.hex-build-grid .case-media:first-child { grid-column: 1 / -1; }
+.hex-build-grid .case-media:first-child img { max-height: 48rem; object-fit: contain; }
+.hex-outcomes { margin-top: clamp(3rem, 7vw, 7rem); }
+.hex-back { display: inline-block; margin-top: 3rem; padding-block: .5rem; }
+.dr-hex-shell .site-footer { padding-block: 2rem; }
+@keyframes hex-ink-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes hex-arrive {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 800px) {
+  .dr-hex-study .hex-hero { grid-template-columns: 1fr; min-height: 0; gap: 2.5rem; }
+  .dr-hex-study h1 { font-size: clamp(4rem, 15vw, 7rem); }
+  .dr-hex-study .hex-summary { max-width: 36rem; }
+  .hex-two-column { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .dr-hex-shell .site-nav,
+  .dr-hex-shell .site-footer,
+  .dr-hex-study .hex-hero,
+  .hex-block-inner { width: calc(100% - 2.5rem); }
+  .hex-build-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hex-facts { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hex-title, .hex-enter, .hex-hero-image {
+    animation: none;
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}
