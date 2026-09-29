@@ -973,3 +973,16 @@ select {
   font-family: "Tw Cen MT", Arial, sans-serif;
 
 }
+
+/* Keep each new sketch and its photograph on the same canvas. */
+.gallery-project[data-project="exoskeleton"] .project-visual {
+  aspect-ratio: 1402 / 1122;
+}
+.gallery-project[data-project="tree-climbing-robot"] .project-visual {
+  aspect-ratio: 1285 / 1224;
+}
+.gallery-project[data-project="exoskeleton"] .project-visual.has-sketch img,
+.gallery-project[data-project="tree-climbing-robot"] .project-visual.has-sketch img {
+  object-fit: contain;
+  object-position: center;
+}
