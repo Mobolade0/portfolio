@@ -41,17 +41,13 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
 
   useEffect(() => {
     if (!desktop || !motionAllowed || !playing || hovered) return;
-    const element = feed.current;
-    if (!element) return;
     let frame = 0;
     let previous = 0;
-    let position = element.scrollTop;
     const step = (now: number) => {
       if (document.hidden) { previous = 0; frame = requestAnimationFrame(step); return; }
-      if (previous) position += Math.min(now - previous, 64) * 0.009;
+      if (previous) window.scrollBy(0, Math.min(now - previous, 64) * 0.009);
       previous = now;
-      element.scrollTop = position;
-      if (element.scrollTop >= element.scrollHeight - element.clientHeight - 1) {
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
         setPlaying(false); setAtEnd(true); return;
       }
       frame = requestAnimationFrame(step);
@@ -60,6 +56,24 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
     return () => { clearTimeout(delay); cancelAnimationFrame(frame); };
   }, [desktop, motionAllowed, playing, hovered]);
 
+  useEffect(() => {
+    const stop = () => setPlaying(false);
+    const track = () => {
+      const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project]"));
+      const visible = cards.findIndex(card => card.getBoundingClientRect().bottom > 100);
+      setCurrentProject(visible < 0 ? projects.length : visible + 1);
+      setAtEnd(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1);
+    };
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchstart", stop, { passive: true });
+    window.addEventListener("scroll", track, { passive: true });
+    return () => {
+      window.removeEventListener("wheel", stop);
+      window.removeEventListener("touchstart", stop);
+      window.removeEventListener("scroll", track);
+    };
+  }, [projects.length]);
+
   function pause() { setPlaying(false); }
   function showSlide(index: number) {
     setSlideIndex(index);
@@ -67,27 +81,18 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
   }
   function showWork() {
     pause();
-    if (desktop) feed.current?.focus();
-    else document.getElementById("work")?.scrollIntoView({ behavior: "auto" });
-  }
-  function onScroll() {
-    const element = feed.current;
-    if (!element) return;
-    const cards = Array.from(element.querySelectorAll<HTMLElement>("[data-project]"));
-    const top = element.getBoundingClientRect().top;
-    const visible = cards.findIndex(card => card.getBoundingClientRect().bottom > top + 100);
-    setCurrentProject(visible < 0 ? projects.length : visible + 1);
-    setAtEnd(element.scrollTop >= element.scrollHeight - element.clientHeight - 1);
+    document.getElementById("work")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   function toggleMotion() {
     if (playing) pause();
     else {
-      if (atEnd && feed.current) { feed.current.scrollTop = 0; setAtEnd(false); }
+      if (atEnd) { window.scrollTo({ top: 0, behavior: "auto" }); setAtEnd(false); }
       setPlaying(true);
     }
   }
 
   return <div className="portfolio-home">
+    <div className="home-left">
     <header className="home-header">
       <div className="identity"><h1>{profile.name}</h1><p className="eyebrow">{profile.discipline} <span>/</span> UCL</p></div>
       <nav className="home-navigation" aria-label="Main navigation">
@@ -118,13 +123,14 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
         <p className="footer-note">Mechanical design. Intelligent systems. Human purpose.</p>
       </footer>
     </aside>
+    </div>
 
     <section className="work-panel" id="work" aria-label="Selected engineering projects">
       <div className="work-toolbar"><h2 className="eyebrow">Selected projects <span className="work-count">/ 0{projects.length}</span></h2>
         {desktop && motionAllowed ? <Button variant="ghost" className="motion-toggle" onClick={toggleMotion} aria-label={playing ? "Pause automatic project scrolling" : atEnd ? "Replay project scrolling" : "Resume automatic project scrolling"}>
           {playing ? <Pause size={13} aria-hidden="true" /> : <Play size={13} aria-hidden="true" />}<span>{playing ? "Pause scroll" : atEnd ? "Replay" : "Play scroll"}</span></Button> : <span className="eyebrow">Scroll to explore <ArrowDown size={12} aria-hidden="true" /></span>}
       </div>
-      <div className="project-feed" ref={feed} tabIndex={0} role="region" aria-label="Project gallery" onScroll={onScroll}
+      <div className="project-feed" ref={feed} tabIndex={0} role="region" aria-label="Project gallery"
         onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
         onWheel={pause} onTouchStart={pause} onPointerDown={pause} onFocusCapture={pause}
         onKeyDown={event => { if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) pause(); }}>
