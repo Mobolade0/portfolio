@@ -130,7 +130,7 @@ export function DrHexStudy({ project }: { project: Project }) {
       </div>
     </section>
 
-    <section className="hex-section hex-section-tinted" aria-labelledby="hex-making">
+    <section className="hex-section hex-section-espresso" aria-labelledby="hex-making">
       <div className="hex-section-inner">
         <p className="eyebrow">02 / Making the idea work</p>
         <h2 id="hex-making">A system built through iteration.</h2>
@@ -147,8 +147,8 @@ export function DrHexStudy({ project }: { project: Project }) {
         <p className="eyebrow">03 / From reference to demonstration</p>
         <h2 id="hex-build">The build, frame by frame.</h2>
         <p className="hex-section-lead">Follow the design decisions, assembled hardware and controlled test setup. Select a photograph to see it in detail.</p>
-        <BuildCarousel frames={frames} />
       </div>
+      <BuildCarousel frames={frames} />
     </section>}
 
     <section className="hex-section hex-section-tinted" aria-labelledby="hex-result">

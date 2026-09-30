@@ -996,7 +996,7 @@ select {
   font-display: swap;
 }
 
-/* Orange Avenue headings; Poynter is retained for the navigation. */
+/* Orange Avenue headings and navigation. */
 h1, h2, h3,
 .identity h1, .profile-copy h2,
 .document-main h1, .document-main h2, .document-main h3,
@@ -1056,10 +1056,10 @@ html { scroll-padding-top: 5rem; }
   border: 0;
   border-right: 1px solid var(--border);
   border-radius: 0;
-  font-family: "Poynter Display", Georgia, serif;
-  font-weight: 600;
-  font-style: italic;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-family: "Orange Avenue", Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.125rem, 1.7vw, 1.75rem);
 }
 .home-navigation button:last-child { border-right: 0; }
 .home-navigation button:hover { background: #51473d; color: #f3eee5; }
@@ -1105,7 +1105,7 @@ html { scroll-padding-top: 5rem; }
   .photo-view-toggle[aria-checked="true"] .photo-view-track { background: #494c35; }
   .photo-view-toggle[aria-checked="true"] .photo-view-track span { transform: translateX(14px); }
 }
-@media (hover: none) {
+@media (hover: none) and (any-hover: none) {
   .project-visual.has-sketch:hover .project-sketch-layer { opacity: 1; }
   .show-photos .project-visual.has-sketch:hover .project-sketch-layer { opacity: 0; }
 }
@@ -1251,3 +1251,93 @@ html { scroll-padding-top: 5rem; }
 @media (prefers-reduced-motion: reduce) {
   .hex-title, .hex-enter, .hex-hero-image { animation: none; clip-path: none; opacity: 1; transform: none; }
 }
+
+
+/* Readable TW Cen text, with Orange Avenue alternate letters for the name. */
+body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
+.identity h1 { font-feature-settings: "ss01" 1; }
+.eyebrow, .image-note, .footer-note, .contact-pending small { font-size: 1rem; }
+.profile-body, .project-summary, .project-role { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
+.profile-body { max-width: 38rem; line-height: 1.45; }
+.profile-detail, .contact-links a, .contact-pending { font-size: 1.125rem; }
+.profile-detail { font-family: "Tw Cen MT", Arial, sans-serif; }
+.footer-note { margin-top: 12px; }
+.personal-footer { padding-top: 12px; }
+.portrait-space { height: clamp(90px, 14svh, 180px); }
+.document-main p, .document-main li { font-size: clamp(1.125rem, 1.3vw, 1.5rem); }
+.document-main .eyebrow { font-size: 1rem; }
+.case-media figcaption, .site-nav, .site-footer { font-size: 1.125rem; }
+
+/* A broad title card and modest gutters at every screen width. */
+.dr-hex-shell { --hex-gutter: clamp(16px, 2vw, 40px); }
+.dr-hex-shell .site-nav, .dr-hex-shell .site-footer,
+.dr-hex-study .hex-hero, .hex-section-inner {
+  width: calc(100% - var(--hex-gutter) * 2);
+  max-width: none;
+}
+.dr-hex-study .hex-hero {
+  padding: clamp(24px, 3vw, 64px);
+  border-radius: 24px;
+  background: #e4ddc9;
+  min-height: min(58rem, calc(100svh - 6rem));
+  gap: clamp(24px, 4vw, 80px);
+}
+.dr-hex-study h1 { font-size: clamp(4rem, 10vw, 12rem); }
+.dr-hex-study .hex-summary { max-width: 42rem; font-size: clamp(1.375rem, 1.8vw, 2rem); }
+.hex-facts dt, .hex-hero-image figcaption { font-size: 1.125rem; }
+.hex-facts dd { font-size: 1.25rem; }
+.hex-section-lead { max-width: 65rem; }
+.hex-section-espresso {
+  --foreground: #f0ebdf;
+  --muted: #c7baaa;
+  --border: #665748;
+  background: #211d19;
+  color: var(--foreground);
+}
+.hex-section-espresso .hex-story-card { background: #302a24; }
+.hex-section-espresso p { color: var(--foreground); }
+.hex-section-espresso .eyebrow { color: var(--muted); }
+.hex-carousel-controls { padding-inline: var(--hex-gutter); }
+.hex-carousel-track { width: 100%; }
+.hex-build-card { flex-basis: 82%; }
+.hex-image-button { height: clamp(320px, 65svh, 900px); padding: clamp(12px, 2vw, 32px); }
+.dr-hex-study .hex-build-card h3 { font-size: clamp(1.75rem, 2.4vw, 3rem); }
+.hex-build-card figcaption { padding: clamp(24px, 3vw, 48px); }
+.hex-build-card p { max-width: 75rem; }
+.hex-carousel-controls button, .hex-enlarge { font-size: 1.125rem; }
+
+/* A large photo popup with the current page visible through its dim backdrop. */
+.hex-lightbox {
+  inset: 0;
+  width: 94vw;
+  height: auto;
+  max-height: 94dvh;
+  margin: auto;
+  padding: 64px clamp(16px, 2vw, 40px) 24px;
+  border: 1px solid #857960;
+  border-radius: 20px;
+  box-shadow: 0 24px 100px #0007;
+}
+.hex-lightbox::backdrop { background: #211d19bf; }
+.hex-lightbox figure { width: 100%; margin: 0; }
+.hex-lightbox img { width: 100%; height: 65dvh; max-height: none; object-fit: contain; }
+.hex-lightbox figcaption { width: 100%; margin-top: 20px; }
+.hex-lightbox-close { position: absolute; top: 10px; right: 12px; }
+@media (max-width: 800px) {
+  .dr-hex-study .hex-hero { min-height: 0; }
+  .hex-build-card { flex-basis: 92%; }
+  .hex-image-button { height: 55svh; min-height: 300px; }
+  .hex-lightbox { width: 94vw; max-height: 92dvh; }
+  .hex-lightbox img { height: 55dvh; }
+}
+@media (min-width: 1000px) and (min-height: 700px) and (max-height: 850px) {
+  .identity { padding-top: 16px; }
+  .portrait-space { height: 80px; }
+  .profile-copy { padding-block: 12px; }
+  .profile-copy h2 { margin-bottom: 12px; }
+  .profile-body { font-size: 1.125rem; }
+  .profile-detail { margin-top: 10px; }
+  .personal-panel { gap: 10px; }
+}
+
+.project-caption .eyebrow, .profile-topline .eyebrow, .slide-controls > .eyebrow { font-size: 1rem; }

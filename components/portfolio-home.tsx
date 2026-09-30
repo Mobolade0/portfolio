@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Pause, Play } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile, profileSlides } from "@/content/profile";
 import type { Project } from "@/content/types";
@@ -20,76 +20,17 @@ const projectSketches: Partial<Record<string, string>> = {
 export function PortfolioHome({ projects }: { projects: Project[] }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showPhotos, setShowPhotos] = useState(false);
-  const [playing, setPlaying] = useState(true);
-  const [hovered, setHovered] = useState(false);
-  const [motionAllowed, setMotionAllowed] = useState(false);
-  const [desktop, setDesktop] = useState(false);
-  const [atEnd, setAtEnd] = useState(false);
-  const [currentProject, setCurrentProject] = useState(1);
-  const feed = useRef<HTMLDivElement>(null);
   const contact = useRef<HTMLElement>(null);
   const slide = profileSlides[slideIndex];
 
-  useEffect(() => {
-    const wide = window.matchMedia("(min-width: 1000px) and (min-height: 700px)");
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => { setDesktop(wide.matches); setMotionAllowed(!reduced.matches); };
-    update();
-    wide.addEventListener("change", update);
-    reduced.addEventListener("change", update);
-    return () => { wide.removeEventListener("change", update); reduced.removeEventListener("change", update); };
-  }, []);
-
-  useEffect(() => {
-    if (!desktop || !motionAllowed || !playing || hovered) return;
-    let frame = 0;
-    let previous = 0;
-    const step = (now: number) => {
-      if (document.hidden) { previous = 0; frame = requestAnimationFrame(step); return; }
-      if (previous) window.scrollBy(0, Math.min(now - previous, 64) * 0.009);
-      previous = now;
-      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
-        setPlaying(false); setAtEnd(true); return;
-      }
-      frame = requestAnimationFrame(step);
-    };
-    const delay = window.setTimeout(() => { frame = requestAnimationFrame(step); }, 1800);
-    return () => { clearTimeout(delay); cancelAnimationFrame(frame); };
-  }, [desktop, motionAllowed, playing, hovered]);
-
-  useEffect(() => {
-    const stop = () => setPlaying(false);
-    const track = () => {
-      const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project]"));
-      const visible = cards.findIndex(card => card.getBoundingClientRect().bottom > 100);
-      setCurrentProject(visible < 0 ? projects.length : visible + 1);
-      setAtEnd(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1);
-    };
-    window.addEventListener("wheel", stop, { passive: true });
-    window.addEventListener("touchstart", stop, { passive: true });
-    window.addEventListener("scroll", track, { passive: true });
-    return () => {
-      window.removeEventListener("wheel", stop);
-      window.removeEventListener("touchstart", stop);
-      window.removeEventListener("scroll", track);
-    };
-  }, [projects.length]);
-
-  function pause() { setPlaying(false); }
   function showSlide(index: number) {
     setSlideIndex(index);
-    if (!desktop) document.getElementById("profile")?.scrollIntoView({ behavior: "auto", block: "start" });
+    if (!window.matchMedia("(min-width: 1000px) and (min-height: 700px)").matches) {
+      document.getElementById("profile")?.scrollIntoView({ block: "start" });
+    }
   }
   function showWork() {
-    pause();
-    document.getElementById("work")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-  function toggleMotion() {
-    if (playing) pause();
-    else {
-      if (atEnd) { window.scrollTo({ top: 0, behavior: "auto" }); setAtEnd(false); }
-      setPlaying(true);
-    }
+    document.getElementById("work")?.scrollIntoView({ block: "start" });
   }
 
   return <div className={`portfolio-home${showPhotos ? " show-photos" : ""}`}>
@@ -129,13 +70,9 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
 
     <section className="work-panel" id="work" aria-label="Selected engineering projects">
       <div className="work-toolbar"><h2 className="eyebrow">Selected projects <span className="work-count">/ 0{projects.length}</span></h2>
-        {desktop && motionAllowed ? <Button variant="ghost" className="motion-toggle" onClick={toggleMotion} aria-label={playing ? "Pause automatic project scrolling" : atEnd ? "Replay project scrolling" : "Resume automatic project scrolling"}>
-          {playing ? <Pause size={13} aria-hidden="true" /> : <Play size={13} aria-hidden="true" />}<span>{playing ? "Pause scroll" : atEnd ? "Replay" : "Play scroll"}</span></Button> : <span className="eyebrow">Scroll to explore <ArrowDown size={12} aria-hidden="true" /></span>}
+        <span className="eyebrow">Scroll to explore <ArrowDown size={12} aria-hidden="true" /></span>
       </div>
-      <div id="project-gallery" className="project-feed" ref={feed} tabIndex={0} role="region" aria-label="Project gallery"
-        onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-        onWheel={pause} onTouchStart={pause} onPointerDown={pause} onFocusCapture={pause}
-        onKeyDown={event => { if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) pause(); }}>
+      <div id="project-gallery" className="project-feed" tabIndex={0} role="region" aria-label="Project gallery">
         {projects.map((project, index) => {
           const media = project.media[0];
           const coverSrc = project.slug === "tree-climbing-robot"
@@ -164,7 +101,6 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
         })}
         <div className="gallery-end"><p>More of the process.</p><Link href="/projects">Explore all projects <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
       </div>
-      <div className="work-bottom" aria-hidden="true"><span>Engineering / Selected work</span><span>0{currentProject} <span className="muted">/ 0{projects.length}</span></span></div>
     </section>
     <button type="button" className="photo-view-toggle" role="switch" aria-checked={showPhotos}
       aria-label="Show real project photos" aria-controls="project-gallery"
