@@ -1,3 +1,4 @@
+import { DrHexStudy } from "./dr-hex-study";
 import type { Media, Project } from "@/content/types";
 function Points({ title, items }: { title: string; items: string[] }) {
   if (!items.length) return null;
@@ -10,6 +11,7 @@ function MediaFigure({ media, eager = false }: { media: Media; eager?: boolean }
   </figure>;
 }
 export function CaseStudy({ project }: { project: Project }) {
+  if (project.slug === "dr-hex") return <DrHexStudy project={project} />;
   const comparison = project.media.filter(media => media.group === "slam-comparison");
   return <article className="case-study"><header><p className="metadata">{project.period}</p>
     <h1>{project.title}</h1><p className="lead">{project.summary}</p><p>{project.role}</p></header>

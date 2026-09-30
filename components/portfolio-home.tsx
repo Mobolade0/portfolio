@@ -19,6 +19,7 @@ const projectSketches: Partial<Record<string, string>> = {
 
 export function PortfolioHome({ projects }: { projects: Project[] }) {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [showPhotos, setShowPhotos] = useState(false);
   const [playing, setPlaying] = useState(true);
   const [hovered, setHovered] = useState(false);
   const [motionAllowed, setMotionAllowed] = useState(false);
@@ -91,16 +92,17 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
     }
   }
 
-  return <div className="portfolio-home">
-    <div className="home-left">
-    <header className="home-header">
-      <div className="identity"><h1>{profile.name}</h1><p className="eyebrow">{profile.discipline} <span>/</span> UCL</p></div>
+  return <div className={`portfolio-home${showPhotos ? " show-photos" : ""}`}>
       <nav className="home-navigation" aria-label="Main navigation">
         <Button variant="ghost" onClick={showWork}>Work</Button>
         <Button variant="ghost" onClick={() => showSlide(0)}>About</Button>
         <Button variant="ghost" onClick={() => showSlide(1)}>Experience</Button>
         <Button variant="ghost" onClick={() => { contact.current?.scrollIntoView({ block: "nearest" }); contact.current?.focus(); }}>Contact</Button>
       </nav>
+    <div className="home-left">
+    <header className="home-header">
+      <div className="identity"><h1>{profile.name}</h1><p className="eyebrow">{profile.discipline} <span>/</span> UCL</p></div>
+
     </header>
 
     <aside className="personal-panel" aria-label="About Yusuf">
@@ -130,7 +132,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
         {desktop && motionAllowed ? <Button variant="ghost" className="motion-toggle" onClick={toggleMotion} aria-label={playing ? "Pause automatic project scrolling" : atEnd ? "Replay project scrolling" : "Resume automatic project scrolling"}>
           {playing ? <Pause size={13} aria-hidden="true" /> : <Play size={13} aria-hidden="true" />}<span>{playing ? "Pause scroll" : atEnd ? "Replay" : "Play scroll"}</span></Button> : <span className="eyebrow">Scroll to explore <ArrowDown size={12} aria-hidden="true" /></span>}
       </div>
-      <div className="project-feed" ref={feed} tabIndex={0} role="region" aria-label="Project gallery"
+      <div id="project-gallery" className="project-feed" ref={feed} tabIndex={0} role="region" aria-label="Project gallery"
         onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
         onWheel={pause} onTouchStart={pause} onPointerDown={pause} onFocusCapture={pause}
         onKeyDown={event => { if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) pause(); }}>
@@ -164,5 +166,11 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
       </div>
       <div className="work-bottom" aria-hidden="true"><span>Engineering / Selected work</span><span>0{currentProject} <span className="muted">/ 0{projects.length}</span></span></div>
     </section>
+    <button type="button" className="photo-view-toggle" role="switch" aria-checked={showPhotos}
+      aria-label="Show real project photos" aria-controls="project-gallery"
+      onClick={() => setShowPhotos(value => !value)}>
+      <span className="photo-view-track" aria-hidden="true"><span /></span>
+      <span>{showPhotos ? "Real photos" : "Sketches"}</span>
+    </button>
   </div>;
 }
