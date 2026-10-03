@@ -3,20 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import type { Media, Project } from "@/content/types";
 
-type BuildFrame = { media: Media; title: string; context: string };
+type BuildFrame = { media: Media; title: string; caption: string; context: string };
 
 function buildFrames(project: Project): BuildFrame[] {
   const stages = [
-    { file: "rhex-reference.webp", title: "01 / Finding a starting point", context: "Boston Dynamics RHex was a reference for the six-legged architecture. This is a separate robot, not our prototype: its curved legs gave us a starting point for thinking about simple locomotion over uneven ground." },
-    { file: "cad-views.webp", title: "02 / Turning the concept into CAD", context: "I led the final CAD and mechanical layout, bringing the chassis, motors, legs and sensor positions into one buildable assembly. These views show the design we used to work through packaging and assembly decisions." },
-    { file: "hexapod-side.webp", title: "03 / Developing the leg architecture", context: "The side view shows the curved, compliant legs. I experimented with printed materials and infill, combined printed parts with PVC reinforcement, and tuned a tripod gait to balance structural support with compliance." },
-    { file: "hexapod-isometric.webp", title: "04 / Bringing the system together", context: "The assembled team prototype brought locomotion and sensing onto one platform. Alongside the mechanical build, I collaborated on SLAM and thermal-detection integration and testing, and kept IBM updated as the project developed." },
-    { file: "test-scene.webp", title: "05 / Testing around a person", context: "This overhead photograph records a physical test scene with a seated person. It provided a controlled setting for exploring how the robot and its sensing could support the disaster-response concept; it was not a real rescue or field trial." },
-    { file: "slam-map.webp", title: "06 / Seeing the corresponding map", context: "The SLAM visualisation corresponds to the preceding test scene. It shows the robot and mapped surroundings, giving us a way to inspect the navigation work alongside the physical setup." },
+    { file: "rhex-reference.webp", title: "Finding a starting point", caption: "RHex provided a reference for simple movement over uneven ground.", context: "Boston Dynamics RHex was a reference for the six-legged architecture. This is a separate robot, not our prototype: its curved legs gave us a starting point for thinking about simple locomotion over uneven ground." },
+    { file: "cad-views.webp", title: "Turning the concept into CAD", caption: "Packaging the chassis, motors, legs and sensors into one assembly.", context: "I led the final CAD and mechanical layout, bringing the chassis, motors, legs and sensor positions into one buildable assembly. These views show the design we used to work through packaging and assembly decisions." },
+    { file: "hexapod-side.webp", title: "Developing the legs", caption: "Compliant legs and a tripod gait shaped through material experiments.", context: "The side view shows the curved, compliant legs. I experimented with printed materials and infill, combined printed parts with PVC reinforcement, and tuned a tripod gait to balance structural support with compliance." },
+    { file: "hexapod-isometric.webp", title: "Bringing it together", caption: "The assembled prototype brings locomotion and sensing onto one platform.", context: "The assembled team prototype brought locomotion and sensing onto one platform. Alongside the mechanical build, I collaborated on SLAM and thermal-detection integration and testing, and kept IBM updated as the project developed." },
+    { file: "test-scene.webp", title: "Testing around a person", caption: "A controlled scene for exploring the disaster-response concept.", context: "This overhead photograph records a physical test scene with a seated person. It provided a controlled setting for exploring how the robot and its sensing could support the disaster-response concept; it was not a real rescue or field trial." },
+    { file: "slam-map.webp", title: "Mapping the scene", caption: "A SLAM view of the robot and the corresponding test surroundings.", context: "The SLAM visualisation corresponds to the preceding test scene. It shows the robot and mapped surroundings, giving us a way to inspect the navigation work alongside the physical setup." },
   ];
   return stages.flatMap(stage => {
     const media = project.media.find(item => item.src.endsWith("/" + stage.file));
-    return media ? [{ media, title: stage.title, context: stage.context }] : [];
+    return media ? [{ media, title: stage.title, caption: stage.caption, context: stage.context }] : [];
   });
 }
 
@@ -77,7 +77,10 @@ function BuildCarousel({ frames }: { frames: BuildFrame[] }) {
           <img src={frame.media.src} alt={frame.media.alt} width={frame.media.width} height={frame.media.height} loading="lazy" />
           <span className="hex-enlarge" aria-hidden="true">View photo</span>
         </button>
-        <figcaption><h3>{frame.title}</h3><p>{frame.context}</p></figcaption>
+        <figcaption><h3>{frame.title}</h3><p>{frame.caption}</p>
+          <button type="button" className="hex-stage-details" aria-label={`Read more: ${frame.title}`}
+            onClick={event => { opener.current = event.currentTarget; setSelected(frame); }}>Learn more</button>
+        </figcaption>
       </figure>)}
     </div>
     <dialog className="hex-lightbox" ref={dialog} aria-labelledby="hex-preview-title" aria-describedby="hex-preview-context"

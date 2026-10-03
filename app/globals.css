@@ -1406,3 +1406,79 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .profile-track .profile-body { font-size: 1.0625rem; }
   .profile-tabs { margin-bottom: 8px; }
 }
+
+
+/* A calm nameplate above a more expressive profile card. */
+.identity { width: 100%; text-align: center; padding: clamp(24px, 5svh, 60px) 0 16px; }
+.identity h1 { font-size: clamp(3.4rem, 5.6vw, 7rem); line-height: 1.12; margin: 0; }
+.profile-carousel { margin-block: auto; }
+.profile-tabs { gap: 8px; }
+.profile-tabs button { color: #e7dcc7; border-color: #74614d; }
+.profile-tabs button[aria-selected="true"] { background: #e4ddc9; border-color: #e4ddc9; }
+.profile-track { display: block; overflow: hidden; border-radius: 24px; scrollbar-width: none; touch-action: pan-y; cursor: grab; user-select: none; }
+.profile-track.is-dragging { cursor: grabbing; }
+.profile-panels { width: 100%; display: flex; align-items: stretch; transition: transform 550ms cubic-bezier(.22, 1, .36, 1); }
+.is-dragging .profile-panels { transition: none; }
+.profile-track .profile-slide { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(16px, 2vw, 32px); align-items: center; padding: clamp(16px, 2vw, 32px); background: #302a24; }
+.profile-track .profile-slide-interests { display: flex; background: #e4ddc9; color: #211d19; }
+.profile-track .profile-slide-interests .profile-body { color: #494537; }
+.profile-track .profile-slide-ibm { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+.profile-slide-ibm .profile-panel-media { order: 2; }
+.profile-track .profile-copy { min-width: 0; padding: 0; }
+.profile-track .profile-copy h2 { font-size: clamp(1.6rem, 2.25vw, 2.8rem); line-height: 1.15; }
+.profile-track .profile-body { font-size: clamp(1.0625rem, 1.15vw, 1.3rem); }
+.profile-panel-media { width: 100%; height: auto; align-self: stretch; }
+.profile-panel-media img { width: 100%; height: 100%; max-height: 430px; object-fit: contain; border-radius: 16px; }
+.profile-portrait img { object-fit: cover; object-position: center 35%; }
+.personal-footer { border-color: #74614d; padding-top: 16px; }
+.contact-links a { color: #e4ddc9; }
+.gallery-project[data-project="dr-hex"] .project-caption { background: #e4ddc9; color: #33352a; border-radius: 0 0 18px 18px; padding-inline: 20px; border-color: #cec5b1; }
+.gallery-project[data-project="dr-hex"] .project-caption .eyebrow,
+.gallery-project[data-project="dr-hex"] .project-summary { color: #61604e; }
+.gallery-end { background: #302a24; border-radius: 18px; padding: 32px; margin-top: 24px; }
+.gallery-end a { color: #e4ddc9; }
+.reel-control { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 0; color: var(--muted); font-size: 1rem; padding: 4px 0; }
+
+/* An image-led strip, with short captions and the full story inside the popup. */
+.hex-build-card { flex: 0 0 calc((100% - var(--hex-gutter) * 2 - 48px) / 3); min-width: 0; border: 0; border-radius: 0; background: transparent; overflow: visible; scroll-snap-align: start; }
+.hex-image-button { height: auto; aspect-ratio: 1; padding: 12px; background: #e4ddc9; border-radius: 12px; overflow: hidden; }
+.hex-image-button img { display: block; object-fit: contain; }
+.hex-build-card figcaption { padding: 20px 0 8px; }
+.dr-hex-study .hex-build-card h3 { font-size: clamp(1.5rem, 1.8vw, 2.2rem); margin-bottom: 12px; }
+.document-main .hex-build-card p { font-size: clamp(1.125rem, 1.2vw, 1.375rem); line-height: 1.45; }
+.hex-stage-details { min-height: 44px; margin-top: 20px; padding: 10px 22px; border: 1px solid #857960; border-radius: 999px; background: #e4ddc9; color: #33352a; font-size: 1rem; }
+.hex-stage-details:hover { background: #d4c8a9; }
+.hex-carousel-track { padding-bottom: 24px; }
+.about-page > h1 { max-width: 60rem; }
+@media (max-width: 1200px) {
+  .profile-track .profile-slide, .profile-track .profile-slide-ibm { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 16px; padding: 16px; }
+  .profile-track .profile-slide-ibm { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); }
+  .profile-track .profile-copy h2 { font-size: 1.6rem; }
+}
+@media (max-width: 999px) {
+  .identity { padding: 32px 24px 16px; }
+  .identity h1 { font-size: clamp(3rem, 7vw, 5rem); }
+  .profile-panel-media img { max-height: 350px; }
+  .hex-build-card { flex-basis: calc((100% - var(--hex-gutter) * 2 - 24px) / 2); }
+}
+@media (max-width: 600px) {
+  .profile-track .profile-slide, .profile-track .profile-slide-ibm { display: flex; flex-direction: column; align-items: stretch; padding: 20px; }
+  .profile-track .profile-slide-interests { justify-content: center; }
+  .profile-panel-media { align-self: auto; height: 240px; }
+  .profile-panel-media img { height: 100%; width: 100%; object-fit: contain; }
+  .profile-slide-ibm .profile-panel-media { order: 0; height: 210px; }
+  .profile-track .profile-copy h2 { font-size: 1.8rem; }
+  .hex-build-card { flex-basis: 84%; }
+}
+@media (min-width: 1000px) and (min-height: 700px) and (max-height: 850px) {
+  .identity { padding: 24px 0 12px; }
+  .identity h1 { font-size: clamp(3.4rem, 5vw, 5.6rem); }
+  .profile-track .profile-slide { padding: 16px; gap: 16px; }
+  .profile-panel-media { height: auto; }
+  .profile-panel-media img { max-height: 310px; }
+  .profile-track .profile-copy h2 { font-size: 1.65rem; }
+  .profile-track .profile-body { font-size: 1.0625rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-panels { transition: none; }
+}
