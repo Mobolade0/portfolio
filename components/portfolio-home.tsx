@@ -20,25 +20,25 @@ const projectSketches: Partial<Record<string, string>> = {
 export function PortfolioHome({ projects }: { projects: Project[] }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showPhotos, setShowPhotos] = useState(false);
-  const contact = useRef<HTMLElement>(null);
-  const slide = profileSlides[slideIndex];
+  const profileTrack = useRef<HTMLDivElement>(null);
 
   function showSlide(index: number) {
-    setSlideIndex(index);
-    if (!window.matchMedia("(min-width: 1000px) and (min-height: 700px)").matches) {
-      document.getElementById("profile")?.scrollIntoView({ block: "start" });
-    }
+    const track = profileTrack.current;
+    if (!track) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    track.scrollTo({ left: index * track.clientWidth, behavior: reduced ? "auto" : "smooth" });
   }
-  function showWork() {
-    document.getElementById("work")?.scrollIntoView({ block: "start" });
+  function showExperience() {
+    document.getElementById("profile")?.scrollIntoView({ block: "nearest" });
+    showSlide(2);
   }
 
   return <div className={`portfolio-home${showPhotos ? " show-photos" : ""}`}>
       <nav className="home-navigation" aria-label="Main navigation">
-        <Button variant="ghost" onClick={showWork}>Work</Button>
-        <Button variant="ghost" onClick={() => showSlide(0)}>About</Button>
-        <Button variant="ghost" onClick={() => showSlide(1)}>Experience</Button>
-        <Button variant="ghost" onClick={() => { contact.current?.scrollIntoView({ block: "nearest" }); contact.current?.focus(); }}>Contact</Button>
+        <Link href="/projects">Projects</Link>
+        <Link href="/about">About</Link>
+        <Button variant="ghost" onClick={showExperience}>Experience</Button>
+        <Link href="/contact">Contact</Link>
       </nav>
     <div className="home-left">
     <header className="home-header">
@@ -48,19 +48,37 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
 
     <aside className="personal-panel" aria-label="About Yusuf">
       <section className="profile-carousel" id="profile" aria-roledescription="carousel" aria-label="Meet Yusuf">
-        <div className="profile-topline"><p className="eyebrow">A little about me</p><span className="eyebrow">0{slideIndex + 1} / 0{profileSlides.length}</span></div>
-        <div id="profile-slide" className="profile-slide" aria-live="polite" aria-atomic="true">
-          <div className="portrait-space">
-            {slide.media?.kind === "image" ? <Image src={slide.media.src} alt={slide.media.alt} fill sizes="(max-width: 600px) 120px, 150px" unoptimized /> : <><span className="portrait-initials" aria-hidden="true">YA</span><span className="image-note">{slideIndex === 0 ? "Portrait to follow" : "Image to follow"}</span></>}
-          </div>
-          <div className="profile-copy" key={slide.id}><p className="eyebrow slide-label">{slide.label}</p><h2>{slide.heading}</h2><p className="profile-body">{slide.body}</p><p className="profile-detail">{slide.detail}</p></div>
+        <div className="profile-topline"><p className="eyebrow">A little about me</p></div>
+        <div className="profile-tabs" role="tablist" aria-label="About Yusuf sections">
+          {profileSlides.map((item, index) => <button type="button" key={item.id} id={`profile-tab-${item.id}`}
+            role="tab" aria-selected={slideIndex === index} aria-controls={`profile-panel-${item.id}`}
+            tabIndex={slideIndex === index ? 0 : -1} onClick={() => showSlide(index)}
+            onKeyDown={event => {
+              const next = event.key === "ArrowRight" ? (index + 1) % profileSlides.length
+                : event.key === "ArrowLeft" ? (index + profileSlides.length - 1) % profileSlides.length
+                : event.key === "Home" ? 0 : event.key === "End" ? profileSlides.length - 1 : null;
+              if (next === null) return;
+              event.preventDefault();
+              showSlide(next);
+              document.getElementById(`profile-tab-${profileSlides[next].id}`)?.focus();
+            }}>{item.label}</button>)}
         </div>
-        <div className="slide-controls" role="group" aria-label="Choose introduction slide">
-          {profileSlides.map((item, index) => <Button key={item.id} variant="ghost" className="slide-dot" aria-label={`Show ${item.label.toLowerCase()}`} aria-pressed={slideIndex === index} aria-controls="profile-slide" onClick={() => setSlideIndex(index)}><span /></Button>)}
-          <span className="eyebrow">{slide.label}</span>
+        <div className="profile-track" ref={profileTrack}
+          onScroll={event => {
+            const track = event.currentTarget;
+            setSlideIndex(Math.max(0, Math.min(profileSlides.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
+          }}>
+          {profileSlides.map((item, index) => <div key={item.id} id={`profile-panel-${item.id}`}
+            className="profile-slide" role="tabpanel" aria-labelledby={`profile-tab-${item.id}`} inert={slideIndex !== index}>
+            {item.media?.kind === "image" && <div className={`profile-panel-media${item.id === "about" ? " profile-portrait" : ""}`}>
+              <Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height}
+                sizes="(max-width: 999px) 90vw, 45vw" unoptimized priority={index === 0} />
+            </div>}
+            <div className="profile-copy"><h2>{item.heading}</h2><p className="profile-body">{item.body}</p><p className="profile-detail">{item.detail}</p></div>
+          </div>)}
         </div>
       </section>
-      <footer className="personal-footer" ref={contact} tabIndex={-1} aria-label="Contact Yusuf">
+      <footer className="personal-footer" aria-label="Contact Yusuf">
         <p className="eyebrow">Let’s connect</p>
         <div className="contact-links">{profile.contacts.map(item => item.href ? <a href={item.href} key={item.label} target="_blank" rel="noreferrer">{item.label}<ArrowUpRight size={14} aria-hidden="true" /></a> : <span key={item.label} className="contact-pending">{item.label}<small>To be added</small></span>)}</div>
         <p className="footer-note">Mechanical design. Intelligent systems. Human purpose.</p>
@@ -96,7 +114,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
               )}
               <span className="project-open" aria-hidden="true"><ArrowUpRight size={23} /></span>
             </Link>
-            <div className="project-caption"><div><p className="eyebrow">0{index + 1} / {project.period}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3></div><div><p className="project-role">{project.role}</p><p className="project-summary">{project.summary}</p></div></div>
+            <div className="project-caption"><div><p className="eyebrow">0{index + 1} / {project.period}</p><h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3></div><div><p className="project-summary">{project.summary}</p></div></div>
           </article>;
         })}
         <div className="gallery-end"><p>More of the process.</p><Link href="/projects">Explore all projects <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
@@ -106,7 +124,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
       aria-label="Show real project photos" aria-controls="project-gallery"
       onClick={() => setShowPhotos(value => !value)}>
       <span className="photo-view-track" aria-hidden="true"><span /></span>
-      <span>{showPhotos ? "Real photos" : "Sketches"}</span>
+      <span>{showPhotos ? "Real photos" : "AI sketches"}</span>
     </button>
   </div>;
 }
