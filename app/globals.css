@@ -1415,10 +1415,8 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .profile-tabs { gap: 8px; }
 .profile-tabs button { color: #e7dcc7; border-color: #74614d; }
 .profile-tabs button[aria-selected="true"] { background: #e4ddc9; border-color: #e4ddc9; }
-.profile-track { display: block; overflow: hidden; border-radius: 24px; scrollbar-width: none; touch-action: pan-y; cursor: grab; user-select: none; }
-.profile-track.is-dragging { cursor: grabbing; }
-.profile-panels { width: 100%; display: flex; align-items: stretch; transition: transform 550ms cubic-bezier(.22, 1, .36, 1); }
-.is-dragging .profile-panels { transition: none; }
+/* Native scrolling is the single source of truth for the profile tabs. */
+.profile-track { display: flex; overflow-x: auto; overflow-y: hidden; border-radius: 24px; scrollbar-width: thin; touch-action: auto; cursor: auto; user-select: text; scroll-snap-type: x mandatory; }
 .profile-track .profile-slide { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(16px, 2vw, 32px); align-items: center; padding: clamp(16px, 2vw, 32px); background: #302a24; }
 .profile-track .profile-slide-interests { display: flex; background: #e4ddc9; color: #211d19; }
 .profile-track .profile-slide-interests .profile-body { color: #494537; }
@@ -1432,12 +1430,9 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .profile-portrait img { object-fit: cover; object-position: center 35%; }
 .personal-footer { border-color: #74614d; padding-top: 16px; }
 .contact-links a { color: #e4ddc9; }
-.gallery-project[data-project="dr-hex"] .project-caption { background: #e4ddc9; color: #33352a; border-radius: 0 0 18px 18px; padding-inline: 20px; border-color: #cec5b1; }
-.gallery-project[data-project="dr-hex"] .project-caption .eyebrow,
-.gallery-project[data-project="dr-hex"] .project-summary { color: #61604e; }
 .gallery-end { background: #302a24; border-radius: 18px; padding: 32px; margin-top: 24px; }
 .gallery-end a { color: #e4ddc9; }
-.reel-control { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 0; color: var(--muted); font-size: 1rem; padding: 4px 0; }
+
 
 /* An image-led strip, with short captions and the full story inside the popup. */
 .hex-build-card { flex: 0 0 calc((100% - var(--hex-gutter) * 2 - 48px) / 3); min-width: 0; border: 0; border-radius: 0; background: transparent; overflow: visible; scroll-snap-align: start; }
@@ -1482,3 +1477,21 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 @media (prefers-reduced-motion: reduce) {
   .profile-panels { transition: none; }
 }
+
+/* Shared project palette for the homepage cards and case-study openings. */
+[data-project="exoskeleton"] { --project-color: #dce0cf; --project-ink: #303729; --project-muted: #505a46; }
+[data-project="olympus-advanced"] { --project-color: #dbc8b7; --project-ink: #3d3028; --project-muted: #655044; }
+[data-project="dr-hex"] { --project-color: #e4ddc9; --project-ink: #33352a; --project-muted: #61604e; }
+[data-project="olympus-basic"] { --project-color: #cdd9dc; --project-ink: #29373b; --project-muted: #4b6168; }
+[data-project="tree-climbing-robot"] { --project-color: #d5d8ba; --project-ink: #343a28; --project-muted: #545d40; }
+.gallery-project .project-caption { background: var(--project-color); color: var(--project-ink); border-radius: 0 0 18px 18px; padding-inline: 20px; border-color: transparent; }
+.gallery-project .project-caption .eyebrow, .gallery-project .project-summary { color: var(--project-muted); }
+.project-title-card { background: var(--project-color); color: var(--project-ink); padding: clamp(24px, 4vw, 64px); border-radius: 24px; margin-bottom: 32px; }
+.project-title-card .metadata, .project-title-card p { color: var(--project-muted); }
+.hex-disaster-banner { position: relative; isolation: isolate; width: 100%; min-height: clamp(340px, 38vw, 560px); display: flex; align-items: center; overflow: hidden; margin-top: clamp(24px, 3vw, 48px); }
+.hex-disaster-image { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+.hex-disaster-banner::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #f0ebdfee 0%, #f0ebdfd9 55%, #f0ebdf88 100%); }
+.hex-disaster-copy { width: 100%; padding: clamp(32px, 5vw, 80px) var(--hex-gutter); color: #211d19; }
+.dr-hex-study .hex-disaster-copy h2 { max-width: 75rem; margin: 0 0 24px; font-size: clamp(2.25rem, 4.8vw, 6rem); line-height: 1.1; text-wrap: balance; }
+.document-main .hex-disaster-copy p { font-size: clamp(1.4rem, 2.5vw, 2.75rem); line-height: 1.25; margin: 0; }
+@media (max-width: 600px) { .hex-disaster-banner { min-height: 350px; } .hex-disaster-banner::before { background: #f0ebdfd9; } }

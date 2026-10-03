@@ -13,7 +13,7 @@ function MediaFigure({ media, eager = false }: { media: Media; eager?: boolean }
 export function CaseStudy({ project }: { project: Project }) {
   if (project.slug === "dr-hex") return <DrHexStudy project={project} />;
   const comparison = project.media.filter(media => media.group === "slam-comparison");
-  return <article className="case-study"><header><p className="metadata">{project.period}</p>
+  return <article className="case-study" data-project={project.slug}><header className="project-title-card"><p className="metadata">{project.period}</p>
     <h1>{project.title}</h1><p className="lead">{project.summary}</p><p>{project.role}</p></header>
     {project.media[0] && <MediaFigure media={project.media[0]} eager />}
     {[{key: "cad", title: "CAD and mechanical design"}, {key: "prototype", title: "Wearable and testing"}, {key: "context", title: "Movement and routing references"}].map(group => {
@@ -28,3 +28,4 @@ export function CaseStudy({ project }: { project: Project }) {
     {comparison.length > 0 && <section aria-labelledby="slam-comparison"><h2 id="slam-comparison">SLAM: scene and map</h2><div className="media-comparison">{comparison.map(media => <MediaFigure key={media.src} media={media} />)}</div></section>}
   </article>;
 }
+

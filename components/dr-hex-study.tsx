@@ -104,32 +104,17 @@ export function DrHexStudy({ project }: { project: Project }) {
         <p className="eyebrow hex-enter">UCL × IBM / Disaster-response robotics</p>
         <h1><span className="hex-title">DR HEX</span></h1>
         <p className="hex-summary hex-enter">A six-legged prototype exploring how robots could help responders reach people in unsafe environments.</p>
-        <dl className="hex-facts hex-enter">
-          <div><dt>The brief</dt><dd>Five-week university industrial project</dd></div>
-          <div><dt>My role</dt><dd>{project.role}</dd></div>
-          <div><dt>The team</dt><dd>Four UCL students, in partnership with IBM</dd></div>
-          <div><dt>When</dt><dd>{project.period}</dd></div>
-        </dl>
-        <a className="hex-explore" href="#hex-story">The story behind the robot</a>
+
       </div>
-      {hero && <figure className="hex-hero-image"><img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} loading="eager" /><figcaption>DR-Hex, the assembled team prototype.</figcaption></figure>}
+      {hero && <figure className="hex-hero-image"><img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} loading="eager" /></figure>}
     </header>
 
-    <section id="hex-story" className="hex-section" aria-labelledby="hex-need">
-      <div className="hex-section-inner">
-        <p className="eyebrow">01 / The reason to build</p>
-        <h2 id="hex-need">Help before it is safe to enter.</h2>
-        <div className="hex-story-grid">
-          <div className="hex-story-card">
-            <p>After a natural disaster, reaching someone can mean crossing unstable ground or entering a space that is unsafe for a responder. A robot could help teams inspect those spaces and establish contact before sending a person in.</p>
-            <p>That was the use case behind DR-Hex: a mobile platform for exploring disaster response and victim triage in hazardous environments where GPS may not be available.</p>
-          </div>
-          <div className="hex-story-card hex-story-brief">
-            <h3>Five weeks to make it real.</h3>
-            <p>As part of a UCL university industrial project with IBM, our four-person team had five weeks to turn that idea into a working prototype. We had to bring mechanical design, locomotion, sensing and communication together, rather than develop each in isolation.</p>
-            <p>I led the design and mechanical work and acted as the main IBM liaison, carrying decisions from CAD and the workshop into weekly stakeholder updates.</p>
-          </div>
-        </div>
+    <section id="hex-story" className="hex-disaster-banner" aria-labelledby="hex-need">
+      <img className="hex-disaster-image" src="/media/dr-hex/earthquake-response.webp"
+        alt="Rescue workers searching the rubble of a collapsed building" width={1920} height={1280} loading="lazy" />
+      <div className="hex-disaster-copy">
+        <h2 id="hex-need">In the aftermath of an earthquake,<br />every second counts.</h2>
+        <p>The first 72 hours are critical for saving lives.</p>
       </div>
     </section>
 
@@ -137,6 +122,7 @@ export function DrHexStudy({ project }: { project: Project }) {
       <div className="hex-section-inner">
         <p className="eyebrow">02 / Making the idea work</p>
         <h2 id="hex-making">A system built through iteration.</h2>
+        <p className="hex-section-lead">As part of a UCL industrial project with IBM, our four-person team had five weeks to turn the disaster-response concept into a working prototype. I led the design and mechanical work and acted as the main IBM liaison, connecting decisions in CAD and the workshop with weekly stakeholder updates.</p>
         <div className="hex-engineering-grid">
           <div className="hex-story-card"><h3>Give the robot a body.</h3><p>I led the final CAD, mechanical configuration and assembly, adapting an RHex-inspired architecture to our resources. Printed parts and PVC reinforcement helped us balance compliance with the structural support the chassis needed.</p></div>
           <div className="hex-story-card"><h3>Find a workable gait.</h3><p>I developed the compliant legs through material and infill experiments, then engineered and tuned a tripod gait. The challenge was to make the physical design and motion work together on a platform we could actually build.</p></div>
