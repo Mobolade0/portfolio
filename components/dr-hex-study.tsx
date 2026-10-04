@@ -74,7 +74,6 @@ function BuildCarousel({ frames }: { frames: BuildFrame[] }) {
         <button type="button" className="hex-image-button" aria-label={`Enlarge image: ${frame.title}`}
           onClick={event => { opener.current = event.currentTarget; setSelected(frame); }}>
           <img src={frame.media.src} alt={frame.media.alt} width={frame.media.width} height={frame.media.height} loading="lazy" draggable={false} />
-          <span className="hex-enlarge" aria-hidden="true">View photo</span>
         </button>
         <figcaption><h3>{frame.title}</h3><p>{frame.caption}</p>
           <button type="button" className="hex-stage-details" aria-label={`Read more: ${frame.title}`}

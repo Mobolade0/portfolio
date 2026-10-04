@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HomeNavigation } from "@/components/home-navigation";
 import { profile, profileSlides } from "@/content/profile";
 import type { Project } from "@/content/types";
 
@@ -44,12 +44,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
   }
 
   return <div className={`portfolio-home${showPhotos ? " show-photos" : ""}`}>
-      <nav className="home-navigation" aria-label="Main navigation">
-        <Link href="/projects">Projects</Link>
-        <Link href="/about">About</Link>
-        <Button variant="ghost" onClick={showExperience}>Experience</Button>
-        <Link href="/contact">Contact</Link>
-      </nav>
+      <HomeNavigation onExperience={showExperience} />
     <div className="home-left">
     <header className="home-header">
       <div className="identity"><h1>{profile.name}</h1></div>
@@ -71,10 +66,12 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
               showSlide(next);
               document.getElementById(`profile-tab-${profileSlides[next].id}`)?.focus();
             }}>
-              <span className="profile-tab-fill" aria-hidden="true" style={{ width: `${Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}%` }} />
+              <span className="profile-tab-fill" aria-hidden="true" style={{ width: `${Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}%`, left: index < tabPosition ? "auto" : 0, right: index < tabPosition ? 0 : "auto" }} />
               <span className="profile-tab-label">{item.label}</span>
               <span className="profile-tab-label profile-tab-ink" aria-hidden="true"
-                style={{ clipPath: `inset(0 ${100 - Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}% 0 0)` }}>{item.label}</span>
+                style={{ clipPath: index < tabPosition
+                  ? `inset(0 0 0 ${100 - Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}%)`
+                  : `inset(0 ${100 - Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}% 0 0)` }}>{item.label}</span>
             </button>)}
         </div>
         <div className="profile-track" ref={profileViewport}>
