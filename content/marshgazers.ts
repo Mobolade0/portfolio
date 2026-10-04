@@ -1,0 +1,48 @@
+export const roverStories = {
+  "olympus-basic": {
+    stage: "2024–25 / Olympus Rover Trials Basic Stream",
+    title: "A first rover. A shared ambition.",
+    headline: "A camera on Mars. A team finding its feet.",
+    mission: "The challenge was visual reconnaissance: drive a rover through an analogue Martian crater, reach five points of interest and capture the smallest readable QR codes. A live view connected the operator to a vehicle they could not stand beside.",
+    introduction: "Nine UCL East students came together to put their robotics skills to the test. For our first Olympus Rover Trials entry, we chose an effective, teleoperated reconnaissance rover: tracked mobility, a movable camera and a control interface that brought the mission back to the operator.",
+    leadership: "Fahd Adel captained our first competition season. I contributed to the mechanical platform, the camera arm and the operator-facing control system, working with the team to connect hardware, image collection and remote operation.",
+    cards: [
+      { title: "Grip the terrain.", body: "Tracks were chosen for traction on the gravel course. Differential steering let the rover turn on the spot, keeping the mobility system compact and manoeuvrable." },
+      { title: "Look beyond the chassis.", body: "A two-revolute-joint camera arm provided two degrees of freedom for aiming at inclined QR codes. A forward-facing camera gave the operator a view of the route ahead." },
+      { title: "Keep the operator connected.", body: "I supported Arduino-based Wi-Fi control and developed an HTML and JavaScript operator interface, alongside QR detection work using Nicla Vision, MicroPython and OpenMV. Driving remained teleoperated." },
+    ],
+    result: "Our first entry placed second nationally and received the Best Automation and Best Outreach awards. The season also established a team, a way of working and a foundation for a more ambitious rover.",
+    reflection: "The title of an automation award does not change the rover's operating mode: this was a teleoperated vehicle. The broader lesson was how mechanical decisions, camera placement and interface design shape the same mission together.",
+    frames: [
+      {file:"team-globe.webp", title:"Finding our team", caption:"A shared course became a shared engineering project.", context:"MarshGazers grew from UCL East's Robotics and Artificial Intelligence programme. The first season brought nine students together around a national rover competition, with Fahd Adel as captain."},
+      {file:"rover-preparation.webp", title:"Preparing the tracked rover", caption:"Working through the hardware as a team.", context:"The tracked platform combined mobility, remote operation and image capture. I contributed to the mechanical platform and supported integration of the drive system and two-degree-of-freedom camera arm."},
+      {file:"rover-ral-space.webp", title:"On the vibration bed", caption:"The rover at RAL Space, beyond the classroom bench.", context:"The tracked rover is shown on the vibration bed at RAL Space. This photograph records the hardware in the competition environment; it does not establish a quantified vibration qualification result."},
+      {file:"team-ral-space.webp", title:"Taking the rover to RAL Space", caption:"A team-built system, brought to the venue.", context:"Team members with the rover at RAL Space. The mission combined teleoperated navigation with QR image collection, bringing mechanical, electronics and software work into one platform."},
+      {file:"outreach.webp", title:"Sharing what we built", caption:"Introducing the rover to people beyond the team.", context:"Outreach was part of the MarshGazers story as well as engineering. This image shows team members demonstrating the rover to visitors; the team received the Best Outreach award in the Basic Stream season."},
+      {file:"rover-awards.webp", title:"Our first competition outcome", caption:"Second place, Best Automation and Best Outreach.", context:"The Basic Stream rover displayed with the team's awards. The 2024–25 season finished with second place nationally, Best Automation and Best Outreach, and gave us a foundation for the following season."},
+    ],
+  },
+  "olympus-advanced": {
+    stage: "2025–26 / Olympus Rover Trials Advanced Stream",
+    title: "From looking to collecting.",
+    headline: "The next mission: bring a piece of Mars back.",
+    mission: "The Advanced Stream brief moved from reconnaissance to sampling. In the Airbus Mars Yard, the rover was tasked with reaching designated collection sites, acquiring regolith and returning it to an analyser at the landing zone, for up to three sites within a 30-minute mission window.",
+    introduction: "Our second season combined returning MarshGazers with new recruits. The ambition grew with the team: a four-wheeled sampling rover, a RASSOR-inspired bucket drum and a largely autonomous architecture, backed by supervised teleoperation for recovery.",
+    leadership: "Sean captained the second season, with Dami and me as vice captains. As Mechanical Subteam Lead, I led concept selection, mobility and sampling architecture, and CAD and CAM work in Autodesk Fusion 360, while communicating build plans and trade-offs with supervisors and workshop stakeholders.",
+    cards: [
+      { title: "Move through loose sand.", body: "We selected four-wheel skid-steer mobility with deep-tread wheels. The mechanical challenge was to package a rover that could traverse soft terrain while carrying the sampling system and onboard electronics." },
+      { title: "Collect, carry, deposit.", body: "The sampling design drew on the RASSOR principle: counter-rotating bucket drums working in loose regolith. I led adaptation of the concept to our manufacturing resources and the competition's collection and deposition constraints." },
+      { title: "Design towards autonomy.", body: "The mission architecture targeted onboard localisation and mapping, path planning and obstacle avoidance, with supervised teleoperation as a recovery mode. These were design goals; a fully autonomous end-to-end mission is not claimed here." },
+    ],
+    result: "We took the assembled rover to the competition and won Best Critical Design Review (CDR). Our Preliminary Design Report had also received 73/100, a Grade A. The photographs show the final hardware and field preparation behind that design work.",
+    reflection: "Moving from a camera rover to a sampling system meant coordinating mobility, excavation, sensing and software around one mission. The available evidence supports the design work, assembled vehicle and review award; it does not establish a measured autonomous sampling success rate.",
+    frames: [
+      {file:"rover-bench.webp", title:"Packaging the system", caption:"Mobility, sensing and sampling in one assembly.", context:"The assembled rover on its support stand shows how the wheels, chassis, electronics and sensing were packaged. I led the mechanical subteam, with mobility and sampling architecture and CAD/CAM among my responsibilities."},
+      {file:"rover-adjustment.webp", title:"Working through the hardware", caption:"Hands-on adjustments before the field.", context:"A team member adjusts the rover's wheel while the chassis is supported. This stage illustrates the physical integration work needed to move from CAD and design reviews to an assembled system."},
+      {file:"rover-preparation.webp", title:"Preparing as a team", caption:"Hardware checks and integration at the workbench.", context:"The team prepared the rover and checked its hardware at the venue. Sean captained this season, with Dami and Yusuf as vice captains, coordinating across the rover's mechanical, electronics and software work."},
+      {file:"rover-sand.webp", title:"Meeting the sand", caption:"The final rover in the analogue Mars environment.", context:"The final rover on the sandy competition course. Its four-wheel mobility and RASSOR-inspired sampling design were developed for the Advanced Stream mission. This photograph records the field setting, not a quantified autonomous mission result."},
+      {file:"rover-terrain.webp", title:"Terrain shapes the design", caption:"Loose regolith and obstacles set the engineering problem.", context:"The rover in sand beside rocks illustrates the environment behind our mobility and sampling choices. Localisation, obstacle avoidance and controlled excavation were parts of the intended mission architecture."},
+      {file:"team.webp", title:"A second season together", caption:"Returning members, new recruits and Best CDR.", context:"MarshGazers with the assembled Advanced Stream rover at the competition. The team won Best Critical Design Review after a season of engineering justification, build work and collaboration across subteams."},
+    ],
+  },
+} as const;

@@ -108,6 +108,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
             : media?.kind === "image" ? media.src : undefined;
           const sketch = media?.kind === "image" ? projectSketches[project.slug] : undefined;
           return <article className="gallery-project" key={project.slug} data-project={project.slug}>
+            {(project.slug === "olympus-basic" || project.slug === "olympus-advanced") && <Link className="marsh-home-badge" href="/marshgazers" aria-label="Meet Team MarshGazers"><img src="/media/marshgazers/logo.png" alt="MarshGazers" width={2048} height={962} /></Link>}
             <Link className={`project-visual${sketch ? " has-sketch" : ""}`} href={`/projects/${project.slug}`} aria-label={`View ${project.title} case study`}>
               {media?.kind === "image" ? <Image src={coverSrc!} alt={media.alt} fill sizes="(max-width: 999px) 100vw, 54vw" unoptimized priority={index === 0} /> : media?.kind === "video" ? <video src={media.src} aria-label={media.alt} controls preload="metadata" /> : <div className="media-placeholder"><span className="placeholder-index" aria-hidden="true">0{index + 1}</span><div><span className="eyebrow">{project.tags[0]}</span><p>{project.title}</p><span className="image-note">Project photograph to follow</span></div></div>}
               {sketch && (

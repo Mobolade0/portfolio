@@ -1619,3 +1619,57 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .site-nav { padding-block: 8px; }
   .site-nav .home-navigation-links { right: 0; }
 }
+
+/* A distinct, compact exoskeleton opening with a filled display title. */
+.exoskeleton-study .hex-hero { background: #d8d8bb; border-color: #b7ba98; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); min-height: 0; align-items: start; }
+.exoskeleton-study .hex-intro { padding-top: clamp(16px, 3vw, 56px); }
+.exoskeleton-study h1 { font-family: "Orange Avenue", Georgia, serif; font-size: clamp(3rem, 7.8vw, 9.75rem); }
+.exoskeleton-study .hex-hero-image img { max-height: min(680px, 72svh); object-fit: contain; }
+.exo-human-banner { display: flex; min-height: clamp(360px, 34vw, 560px); }
+.exo-human-banner .hex-disaster-image { position: absolute; inset: 0; z-index: -2; height: 100%; object-fit: cover; object-position: center 55%; filter: grayscale(1); }
+.exo-human-banner::before { display: block; background: linear-gradient(90deg, #f0ebdf18 0%, #f0ebdf22 52%, #f0ebdfcc 65%, #f0ebdfee 100%); }
+.exo-human-banner .hex-disaster-copy { width: 38%; margin-left: auto; padding: clamp(24px, 3vw, 56px); text-align: right; }
+.exoskeleton-study .exo-human-banner h2 { font-size: clamp(2rem, 3.1vw, 4.25rem); }
+
+/* MarshGazers: a shared identity, with two distinct competition stories. */
+.marsh-logo-hero { padding: clamp(32px, 6vw, 96px) var(--hex-gutter) 56px; text-align: center; }
+.marsh-logo-hero > img { display: block; width: min(88vw, 1400px); height: auto; max-height: 58svh; object-fit: contain; margin: 0 auto 36px; }
+.marsh-logo-hero .marsh-tagline { font-family: "Orange Avenue", Georgia, serif; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.2; margin: 20px 0; }
+.marsh-logo-hero > a, .marsh-team-link, .rover-links a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; font-size: 1.25rem; color: inherit; text-underline-offset: 5px; }
+.marsh-team-link { margin-bottom: 24px; }
+.marsh-team-link img { width: 100px; height: auto; }
+.marsh-overview .hex-section-lead { margin-bottom: 0 !important; }
+.marsh-overview .hex-section-lead + .hex-section-lead { margin-top: 24px; }
+.marsh-competition-grid, .marsh-awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.marsh-competition-card { display: block; overflow: hidden; border: 1px solid #cec5b1; border-radius: 24px; background: #e6decc; color: #33352a; text-decoration: none; }
+.marsh-competition-advanced { background: #e4ddc9; }
+.marsh-competition-card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+.marsh-competition-card > div { padding: clamp(24px, 3vw, 48px); }
+.marsh-competition-card p { font-size: 1.375rem; }
+.marsh-competition-card span { display: inline-block; font-size: 1.25rem; text-decoration: underline; text-underline-offset: 5px; }
+.marsh-competition-card:hover span { text-decoration-thickness: 2px; }
+.rover-study .hex-hero { min-height: 0; padding-block: clamp(32px, 4vw, 72px); }
+.rover-basic .hex-hero { background: #e6decc; }
+.rover-advanced .hex-hero { background: #e4ddc9; }
+.rover-study h1 { font-size: clamp(3.25rem, 7.5vw, 10rem); }
+.rover-mission { background: #d8d8bb; }
+.rover-advanced .rover-mission { background: #d5cbb6; }
+.rover-mission h2 { max-width: 70rem; font-size: clamp(2.5rem, 5vw, 6rem); }
+.rover-links { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; padding-block: 36px; }
+.gallery-project { position: relative; }
+.marsh-home-badge { position: absolute; z-index: 4; top: 16px; right: 16px; display: grid; place-items: center; width: clamp(80px, 8vw, 128px); min-height: 64px; padding: 10px; border: 1px solid #cec5b1; border-radius: 14px; background: #f0ebdfee; }
+.marsh-home-badge img { display: block; width: 100%; height: auto; }
+.marsh-home-badge:hover { background: #e4ddc9; }
+@media (max-width: 800px) {
+  .exoskeleton-study .hex-hero { grid-template-columns: 1fr; }
+  .exoskeleton-study .hex-intro { padding-top: 0; }
+  .exoskeleton-study h1 { font-size: clamp(2.75rem, 10.5vw, 5.5rem); }
+  .exoskeleton-study .hex-hero-image img { max-height: 560px; }
+  .exo-human-banner { display: block; min-height: 0; }
+  .exo-human-banner .hex-disaster-image { position: static; height: auto; object-fit: contain; opacity: .85; }
+  .exo-human-banner::before { display: none; }
+  .exo-human-banner .hex-disaster-copy { width: 100%; }
+  .marsh-competition-grid, .marsh-awards { grid-template-columns: 1fr; }
+  .marsh-logo-hero > img { width: 100%; }
+  .rover-study h1 { font-size: clamp(3rem, 12vw, 6rem); }
+}

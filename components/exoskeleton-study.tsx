@@ -42,7 +42,7 @@ export function ExoskeletonStudy({ project }: { project: Project }) {
         <h1><span className="hex-title">Assistive Exoskeleton</span></h1>
         <p className="hex-summary hex-enter">Exploring how twisted string actuation could help with one everyday movement: getting up from a chair.</p>
       </div>
-      {hero && <figure className="hex-hero-image"><img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} loading="eager" /></figure>}
+      {hero && <figure className="hex-hero-image"><img src="/media/exoskeleton/wearable-side-opening.jpg" alt="Side profile of the seated wearable prototype, showing the thigh and calf brackets and string route" width={1200} height={1278} loading="eager" /></figure>}
     </header>
 
     <section className="hex-disaster-banner exo-human-banner" aria-labelledby="exo-purpose">
