@@ -28,7 +28,7 @@ export function DrHexStudy({ project }: { project: Project }) {
   return <article className="dr-hex-study project-story-study" ref={study}>
     <header className="hex-hero">
       <div className="hex-intro">
-        <p className="eyebrow hex-enter">UCL × IBM / Disaster-response robotics</p>
+        <p className="eyebrow hex-enter">UCL × IBM / Second Year, Final Term Industrial Project</p>
         <h1><span className="hex-title">DR HEX</span></h1>
         <p className="hex-summary hex-enter">A six-legged prototype exploring how robots could help responders reach people in unsafe environments.</p>
 

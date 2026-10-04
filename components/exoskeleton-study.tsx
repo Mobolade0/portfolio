@@ -31,14 +31,14 @@ function exoskeletonFrames(project: Project): BuildFrame[] {
 export function ExoskeletonStudy({ project }: { project: Project }) {
   const study = useRef<HTMLElement>(null);
   useScrollReveals(study);
-  const hero = project.media.find(item => item.src.endsWith("/wearable-front.webp"));
+  const hero = project.media.find(item => item.src.endsWith("/wearable-side.webp"));
   const routing = project.media.find(item => item.src.endsWith("/routing.webp"));
   const frames = exoskeletonFrames(project);
 
   return <article className="exoskeleton-study project-story-study" ref={study}>
     <header className="hex-hero">
       <div className="hex-intro">
-        <p className="eyebrow hex-enter">UCL / Third-year group project / {project.period}</p>
+        <p className="eyebrow hex-enter">UCL / Third Year Group Project</p>
         <h1><span className="hex-title">Assistive Exoskeleton</span></h1>
         <p className="hex-summary hex-enter">Exploring how twisted string actuation could help with one everyday movement: getting up from a chair.</p>
       </div>

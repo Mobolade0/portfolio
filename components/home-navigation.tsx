@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-export function HomeNavigation({ onExperience }: { onExperience: () => void }) {
+export function HomeNavigation({ onExperience }: { onExperience?: () => void }) {
   const [open, setOpen] = useState(false);
   const navigation = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -41,7 +41,7 @@ export function HomeNavigation({ onExperience }: { onExperience: () => void }) {
     <div className={`home-navigation-links${open ? " is-open" : ""}`} id="home-navigation-links" onClick={() => setOpen(false)}>
       <Link href="/projects">Projects</Link>
       <Link href="/about">About</Link>
-      <button type="button" onClick={onExperience}>Experience</button>
+      {onExperience ? <button type="button" onClick={onExperience}>Experience</button> : <Link href="/experience/ibm">Experience</Link>}
       <Link href="/contact">Contact</Link>
     </div>
   </nav>;
