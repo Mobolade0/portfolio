@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
@@ -20,20 +21,22 @@ const projectSketches: Partial<Record<string, string>> = {
 export function PortfolioHome({ projects }: { projects: Project[] }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showPhotos, setShowPhotos] = useState(false);
-  const profileTrack = useRef<HTMLDivElement>(null);
+  const [profileViewport, profileCarousel] = useEmblaCarousel({ align: "start", loop: false, duration: 28 });
+  const [tabPosition, setTabPosition] = useState(0);
+
+  useEffect(() => {
+    if (!profileCarousel) return;
+    const update = () => {
+      setSlideIndex(profileCarousel.selectedScrollSnap());
+      setTabPosition(Math.max(0, Math.min(1, profileCarousel.scrollProgress())) * (profileSlides.length - 1));
+    };
+    update();
+    profileCarousel.on("scroll", update).on("select", update).on("reInit", update);
+    return () => { profileCarousel.off("scroll", update).off("select", update).off("reInit", update); };
+  }, [profileCarousel]);
+
   function showSlide(index: number) {
-    const element = profileTrack.current;
-    if (!element) return;
-    const next = Math.max(0, Math.min(profileSlides.length - 1, index));
-    element.scrollTo({ left: next * element.clientWidth, behavior: "instant" });
-    setSlideIndex(next);
-  }
-  function syncSlide() {
-    const element = profileTrack.current;
-    if (element && element.clientWidth) {
-      setSlideIndex(Math.max(0, Math.min(profileSlides.length - 1,
-        Math.round(element.scrollLeft / element.clientWidth))));
-    }
+    profileCarousel?.scrollTo(index, window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
   function showExperience() {
     document.getElementById("profile")?.scrollIntoView({ block: "nearest" });
@@ -67,17 +70,26 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
               event.preventDefault();
               showSlide(next);
               document.getElementById(`profile-tab-${profileSlides[next].id}`)?.focus();
-            }}>{item.label}</button>)}
+            }}>
+              <span className="profile-tab-fill" aria-hidden="true" style={{ width: `${Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}%` }} />
+              <span className="profile-tab-label">{item.label}</span>
+              <span className="profile-tab-label profile-tab-ink" aria-hidden="true"
+                style={{ clipPath: `inset(0 ${100 - Math.max(0, 1 - Math.abs(tabPosition - index)) * 100}% 0 0)` }}>{item.label}</span>
+            </button>)}
         </div>
-        <div className="profile-track" ref={profileTrack} onScroll={syncSlide}>
+        <div className="profile-track" ref={profileViewport}>
+          <div className="profile-panels">
           {profileSlides.map((item, index) => <div key={item.id} id={`profile-panel-${item.id}`}
-            className={`profile-slide profile-slide-${item.id}`} role="tabpanel" aria-labelledby={`profile-tab-${item.id}`}>
+            className={`profile-slide profile-slide-${item.id}`} role="tabpanel" aria-labelledby={`profile-tab-${item.id}`} inert={slideIndex !== index}>
             {item.media?.kind === "image" && <div className={`profile-panel-media${item.id === "about" ? " profile-portrait" : ""}`}>
               <Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height}
                 sizes="(max-width: 600px) 85vw, 22vw" unoptimized priority={index === 0} draggable={false} />
             </div>}
-            <div className="profile-copy"><h2>{item.heading}</h2><p className="profile-body">{item.body}</p></div>
+            <div className="profile-copy"><h2>{item.heading}</h2><p className="profile-body">{item.body}</p>
+              <Link className="profile-learn-more" href={item.href}>Learn more <ArrowUpRight size={16} aria-hidden="true" /></Link>
+            </div>
           </div>)}
+          </div>
         </div>
       </section>
       <footer className="personal-footer" aria-label="Contact Yusuf">
