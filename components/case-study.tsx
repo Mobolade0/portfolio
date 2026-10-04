@@ -1,3 +1,4 @@
+import { TreeClimbingStudy } from "./tree-climbing-study";
 import { RoverStudy } from "./rover-study";
 import { DrHexStudy } from "./dr-hex-study";
 import { ExoskeletonStudy } from "./exoskeleton-study";
@@ -16,6 +17,7 @@ export function CaseStudy({ project }: { project: Project }) {
   if (project.slug === "dr-hex") return <DrHexStudy project={project} />;
   if (project.slug === "exoskeleton") return <ExoskeletonStudy project={project} />;
   if (project.slug === "olympus-basic" || project.slug === "olympus-advanced") return <RoverStudy project={project} />;
+  if (project.slug === "tree-climbing-robot") return <TreeClimbingStudy project={project} />;
   const comparison = project.media.filter(media => media.group === "slam-comparison");
   return <article className="case-study" data-project={project.slug}><header className="project-title-card"><p className="metadata">{project.period}</p>
     <h1>{project.title}</h1><p className="lead">{project.summary}</p><p>{project.role}</p></header>

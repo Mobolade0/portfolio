@@ -46,8 +46,8 @@ export function ExoskeletonStudy({ project }: { project: Project }) {
     </header>
 
     <section className="hex-disaster-banner exo-human-banner" aria-labelledby="exo-purpose">
-      <img className="hex-disaster-image" src="/media/exoskeleton/independence-hands.png" width={612} height={323}
-        alt="An older man holding a walking stick while another person rests a hand on his" loading="lazy" />
+      <img className="hex-disaster-image" src="/media/exoskeleton/independence-support.png" width={2000} height={833}
+        alt="An older person holding a walking stick with a supporting hand resting over theirs" loading="lazy" />
       <div className="hex-disaster-copy" data-reveal>
         <h2 id="exo-purpose">Standing up.<br />Holding on to independence.</h2>
         <p>Could a wearable lend a hand with an everyday movement?</p>
