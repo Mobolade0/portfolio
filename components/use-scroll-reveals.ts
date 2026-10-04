@@ -33,9 +33,11 @@ export function useScrollReveals(root: RefObject<HTMLElement | null>) {
       urgency.classList.toggle("is-urgent", rect.top < window.innerHeight * .45);
     };
     const onScroll = () => { if (!frame) frame = window.requestAnimationFrame(updateUrgency); };
-    updateUrgency();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    if (urgency) {
+      updateUrgency();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+    }
     return () => {
       observer?.disconnect();
       element.classList.remove("motion-ready");

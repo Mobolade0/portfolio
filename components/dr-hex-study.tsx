@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useRef } from "react";
+import { BuildCarousel, type BuildFrame } from "./build-carousel";
 import { useScrollReveals } from "./use-scroll-reveals";
-import type { Media, Project } from "@/content/types";
-
-type BuildFrame = { media: Media; title: string; caption: string; context: string };
+import type { Project } from "@/content/types";
 
 function buildFrames(project: Project): BuildFrame[] {
   const stages = [
@@ -23,83 +20,12 @@ function buildFrames(project: Project): BuildFrame[] {
   });
 }
 
-function BuildCarousel({ frames }: { frames: BuildFrame[] }) {
-  const [carouselViewport, carousel] = useEmblaCarousel({ align: "center", loop: true, duration: 30 });
-  const dialog = useRef<HTMLDialogElement>(null);
-  const opener = useRef<HTMLButtonElement | null>(null);
-  const [selected, setSelected] = useState<BuildFrame | null>(null);
-  const [position, setPosition] = useState(0);
-
-  useEffect(() => {
-    if (!selected || !dialog.current) return;
-    const element = dialog.current;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    if (!element.open) element.showModal();
-    return () => {
-      element.close();
-      document.body.style.overflow = previousOverflow;
-      opener.current?.focus({ preventScroll: true });
-    };
-  }, [selected]);
-
-  useEffect(() => {
-    if (!carousel) return;
-    const update = () => setPosition(carousel.selectedScrollSnap());
-    update();
-    carousel.on("select", update).on("reInit", update);
-    return () => { carousel.off("select", update).off("reInit", update); };
-  }, [carousel]);
-
-  function move(direction: number) {
-    const jump = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (direction < 0) carousel?.scrollPrev(jump);
-    else carousel?.scrollNext(jump);
-  }
-
-  return <div className="hex-carousel">
-    <div className="hex-carousel-controls">
-      <p aria-live="polite" aria-atomic="true">{String(position + 1).padStart(2, "0")} / {String(frames.length).padStart(2, "0")}</p>
-      <button type="button" className="hex-carousel-arrow hex-carousel-prev" onClick={() => move(-1)} aria-label="Previous build image"><ArrowLeft aria-hidden="true" /></button>
-      <button type="button" className="hex-carousel-arrow hex-carousel-next" onClick={() => move(1)} aria-label="Next build image"><ArrowRight aria-hidden="true" /></button>
-    </div>
-    <div className="hex-carousel-track" ref={carouselViewport} tabIndex={0} role="region" aria-roledescription="carousel" aria-label="DR-Hex build story"
-      onKeyDown={event => {
-        if (event.target !== event.currentTarget || (event.key !== "ArrowLeft" && event.key !== "ArrowRight")) return;
-        event.preventDefault(); move(event.key === "ArrowLeft" ? -1 : 1);
-      }}>
-      <div className="hex-carousel-container">
-      {frames.map((frame, index) => <div className="hex-carousel-slide" key={frame.media.src} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${frames.length}: ${frame.title}`}>
-      <figure className={`hex-build-card${index === position ? " is-active" : ""}`}>
-        <button type="button" className="hex-image-button" aria-label={`Enlarge image: ${frame.title}`}
-          onClick={event => { opener.current = event.currentTarget; setSelected(frame); }}>
-          <img src={frame.media.src} alt={frame.media.alt} width={frame.media.width} height={frame.media.height} loading="lazy" draggable={false} />
-        </button>
-        <figcaption><h3>{frame.title}</h3><p>{frame.caption}</p>
-          <button type="button" className="hex-stage-details" aria-label={`Read more: ${frame.title}`}
-            onClick={event => { opener.current = event.currentTarget; setSelected(frame); }}>Learn more</button>
-        </figcaption>
-      </figure></div>)}
-      </div>
-    </div>
-    <dialog className="hex-lightbox" ref={dialog} aria-labelledby="hex-preview-title" aria-describedby="hex-preview-context"
-      onCancel={event => { event.preventDefault(); setSelected(null); }}
-      onClick={event => { if (event.target === event.currentTarget) setSelected(null); }}>
-      <button type="button" className="hex-lightbox-close" aria-label="Close photo preview" onClick={() => setSelected(null)} autoFocus>×</button>
-      {selected && <figure>
-        <img src={selected.media.src} alt={selected.media.alt} width={selected.media.width} height={selected.media.height} />
-        <figcaption><h2 id="hex-preview-title">{selected.title}</h2><p id="hex-preview-context">{selected.context}</p></figcaption>
-      </figure>}
-    </dialog>
-  </div>;
-}
-
 export function DrHexStudy({ project }: { project: Project }) {
   const hero = project.media.find(media => media.src.endsWith("/hexapod-side.webp")) ?? project.media[0];
   const frames = buildFrames(project);
   const study = useRef<HTMLElement>(null);
   useScrollReveals(study);
-  return <article className="dr-hex-study" ref={study}>
+  return <article className="dr-hex-study project-story-study" ref={study}>
     <header className="hex-hero">
       <div className="hex-intro">
         <p className="eyebrow hex-enter">UCL × IBM / Disaster-response robotics</p>
@@ -138,7 +64,7 @@ export function DrHexStudy({ project }: { project: Project }) {
         <h2 id="hex-build">The build, frame by frame.</h2>
         <p className="hex-section-lead">Follow the design decisions, assembled hardware and controlled test setup. Select a photograph to see it in detail.</p>
       </div>
-      <BuildCarousel frames={frames} />
+      <BuildCarousel frames={frames} label="DR-Hex build story" />
     </section>}
 
     <section className="hex-section hex-section-tinted" aria-labelledby="hex-result">

@@ -89,7 +89,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
           </div>
         </div>
       </section>
-      <footer className="personal-footer" aria-label="Contact Yusuf">
+      <footer className="personal-footer desktop-personal-footer" aria-label="Contact Yusuf">
         <p className="eyebrow">Let’s connect</p>
         <div className="contact-links">{profile.contacts.map(item => item.href ? <a href={item.href} key={item.label} target="_blank" rel="noreferrer">{item.label}<ArrowUpRight size={14} aria-hidden="true" /></a> : <span key={item.label} className="contact-pending">{item.label}<small>To be added</small></span>)}</div>
       </footer>
@@ -130,6 +130,10 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
         <div className="gallery-end"><p>More of the process.</p><Link href="/projects">Explore all projects <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
       </div>
     </section>
+      <footer className="personal-footer mobile-personal-footer" aria-label="Contact Yusuf">
+        <p className="eyebrow">Let’s connect</p>
+        <div className="contact-links">{profile.contacts.map(item => item.href ? <a href={item.href} key={item.label} target="_blank" rel="noreferrer">{item.label}<ArrowUpRight size={14} aria-hidden="true" /></a> : <span key={item.label} className="contact-pending">{item.label}<small>To be added</small></span>)}</div>
+      </footer>
     <button type="button" className="photo-view-toggle" role="switch" aria-checked={showPhotos}
       aria-label="Show real project photos" aria-controls="project-gallery"
       onClick={() => setShowPhotos(value => !value)}>
