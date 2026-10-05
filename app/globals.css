@@ -1924,3 +1924,11 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
     border-radius: 28px;
   }
 }
+
+
+/* Keep link arrows consistent across platforms. */
+.inline-arrow {
+  display: inline-block;
+  flex: 0 0 auto;
+  vertical-align: -0.16em;
+}
