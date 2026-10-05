@@ -1,8 +1,8 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import type { Project } from "@/conimport { InlineArrow } from "@/components/inline-arrow";
-tent/types";
+import type { Project } from "@/content/types";
+import { InlineArrow } from "@/components/inline-arrow";
 function CatalogCard({project}:{project:Project}) {
   const media=project.media[0];
   const image=project.slug === "tree-climbing-robot" ? "/media/tree-climbing-robot/tree-climbing-robot.webp" : media?.src;
