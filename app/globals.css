@@ -1900,3 +1900,10 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
  .marsh-competition-card img, .catalog-card > img { transition: none; }
  .marsh-competition-card:hover img, .catalog-card:hover > img { transform: none; }
 }
+
+/* Desktop homepage: the preferred 90% presentation at normal browser zoom. */
+@media (min-width: 1000px) {
+  .home-main { zoom: .9; }
+  .home-main .portfolio-home { min-height: calc(100svh / .9); }
+  .home-main .home-left { height: calc(100svh / .9 - var(--home-nav-height)); }
+}
