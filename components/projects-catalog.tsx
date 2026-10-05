@@ -1,13 +1,14 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import type { Project } from "@/content/types";
+import type { Project } from "@/conimport { InlineArrow } from "@/components/inline-arrow";
+tent/types";
 function CatalogCard({project}:{project:Project}) {
   const media=project.media[0];
   const image=project.slug === "tree-climbing-robot" ? "/media/tree-climbing-robot/tree-climbing-robot.webp" : media?.src;
   return <Link className="catalog-card" data-project={project.slug} href={`/projects/${project.slug}`}>
     {image && <img src={image} alt={media?.alt || project.title} width={media?.width} height={media?.height} loading="lazy" />}
-    <div><h3>{project.title}</h3><p>{project.summary}</p><span>Explore project ↗</span></div>
+    <div><h3>{project.title}</h3><p>{project.summary}</p><span>Explore project <InlineArrow /></span></div>
   </Link>;
 }
 export function ProjectsCatalog({projects}:{projects:Project[]}) {
@@ -21,7 +22,7 @@ export function ProjectsCatalog({projects}:{projects:Project[]}) {
     }}>{name}</button>)}</div>
     <div id="catalog-panel" role="tabpanel" aria-labelledby={`catalog-tab-${active}`}>
       {active===0 && <div className="catalog-grid">{projects.filter(p=>!p.slug.startsWith("olympus-")).map(p=><CatalogCard key={p.slug} project={p}/>)}</div>}
-      <section className="catalog-marsh-group" aria-labelledby="catalog-marsh-title"><Link className="catalog-marsh-heading" href="/marshgazers"><img src="/media/marshgazers/logo.png" alt="" width={2048} height={962}/><div><p className="eyebrow">One team / Two rover missions</p><h2 id="catalog-marsh-title">MarshGazers</h2><p>Meet the team and follow our progression from reconnaissance to planetary sampling. ↗</p></div></Link><div className="catalog-grid">{rovers.map(p=><CatalogCard key={p.slug} project={p}/>)}</div></section>
+      <section className="catalog-marsh-group" aria-labelledby="catalog-marsh-title"><Link className="catalog-marsh-heading" href="/marshgazers"><img src="/media/marshgazers/logo.png" alt="" width={2048} height={962}/><div><p className="eyebrow">One team / Two rover missions</p><h2 id="catalog-marsh-title">MarshGazers</h2><p>Meet the team and follow our progression from reconnaissance to planetary sampling. <InlineArrow /></p></div></Link><div className="catalog-grid">{rovers.map(p=><CatalogCard key={p.slug} project={p}/>)}</div></section>
     </div>
   </article>;
 }
