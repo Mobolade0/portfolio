@@ -2,8 +2,8 @@
 import { useRef } from "react";
 import { Crown } from "lucide-react";
 import Link from "next/link";
-import { useScrollReveals } from "./use-scroimport { InlineArrow } from "@/components/inline-arrow";
-ll-reveals";
+import { useScrollReveals } from "./use-scroll-reveals";
+import { InlineArrow } from "@/components/inline-arrow";
 export function MarshGazersOverview() {
   const study = useRef<HTMLElement>(null);
   useScrollReveals(study);
