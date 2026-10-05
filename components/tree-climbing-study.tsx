@@ -3,8 +3,8 @@ import {useRef} from "react";
 import Link from "next/link";
 import {BuildCarousel,type BuildFrame} from "./build-carousel";
 import {useScrollReveals} from "./use-scroll-reveals";
-import type {Project} from "@/conimport { InlineArrow } from "@/components/inline-arrow";
-tent/types";
+import type {Project} from "@/content/types";
+import { InlineArrow } from "@/components/inline-arrow";
 const stages=[
  {file:"early-concept.webp",title:"Start with the climb",context:"Our initial concept used two grippers connected by a lead-screw mechanism. Alternating which gripper held the trunk would let the other section advance. I led the design and mechatronics work as the team explored that sequence."},
  {file:"climbing-sequence.webp",title:"Think through each step",context:"These sketches show the intended alternating grip and climb sequence. They describe the proposed motion, rather than proof of a completed climb, canopy-sensor deployment and return."},
