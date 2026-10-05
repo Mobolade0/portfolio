@@ -20,39 +20,39 @@ export const ibmMedia = {
     "height": 1090
   },
   "prototype-fixtures": {
-    "src": "/media/ibm/prototype-fixtures.webp",
-    "width": 811,
-    "height": 1600
+    "src": "/media/ibm/prototype-fixtures-phone.webp",
+    "width": 729,
+    "height": 1522
   },
   "prototype-match-insights": {
-    "src": "/media/ibm/prototype-match-insights.webp",
-    "width": 811,
-    "height": 1600
+    "src": "/media/ibm/prototype-match-insights-phone.webp",
+    "width": 729,
+    "height": 1522
   },
   "prototype-lineups": {
-    "src": "/media/ibm/prototype-lineups.webp",
-    "width": 932,
-    "height": 1839
+    "src": "/media/ibm/prototype-lineups-phone.webp",
+    "width": 838,
+    "height": 1749
   },
   "prototype-match-stats": {
-    "src": "/media/ibm/prototype-match-stats.webp",
-    "width": 811,
-    "height": 1600
+    "src": "/media/ibm/prototype-match-stats-phone.webp",
+    "width": 729,
+    "height": 1522
   },
   "prototype-players": {
-    "src": "/media/ibm/prototype-players.webp",
-    "width": 932,
-    "height": 1839
+    "src": "/media/ibm/prototype-players-phone.webp",
+    "width": 838,
+    "height": 1749
   },
   "original-match-report": {
-    "src": "/media/ibm/original-match-report.webp",
-    "width": 910,
-    "height": 1735
+    "src": "/media/ibm/original-match-report-phone.webp",
+    "width": 818,
+    "height": 1650
   },
   "original-report-detail": {
-    "src": "/media/ibm/original-report-detail.webp",
-    "width": 910,
-    "height": 1735
+    "src": "/media/ibm/original-report-detail-phone.webp",
+    "width": 818,
+    "height": 1650
   },
   "pdlc-map": {
     "src": "/media/ibm/pdlc-map.webp",
@@ -63,5 +63,10 @@ export const ibmMedia = {
     "src": "/media/ibm/feature-ideation.webp",
     "width": 3600,
     "height": 1852
+  },
+  "presentation": {
+    "src": "/media/ibm/fa-ibm-presentation.webp",
+    "width": 2048,
+    "height": 1365
   }
 } as const;

@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { Crown } from "lucide-react";
 import Link from "next/link";
 import { BuildCarousel, type BuildFrame } from "./build-carousel";
 import { useScrollReveals } from "./use-scroll-reveals";
@@ -31,7 +32,7 @@ export function RoverStudy({ project }: { project: Project }) {
     </div></section>
     <section className="hex-section hex-section-espresso" aria-labelledby="rover-engineering"><div className="hex-section-inner"><div data-reveal><p className="eyebrow">03 / Engineering the mission</p><h2 id="rover-engineering">{basic ? "See clearly. Move reliably." : "Make every subsystem serve the sample."}</h2></div><div className="hex-engineering-grid">{story.cards.map((card,index)=><div className="hex-story-card" key={card.title} data-reveal style={{transitionDelay:`${index*180}ms`}}><h3>{card.title}</h3><p>{card.body}</p></div>)}</div></div></section>
     <section className="hex-section hex-build-section" aria-labelledby="rover-build"><div className="hex-section-inner hex-build-introduction" data-reveal><p className="eyebrow">04 / From team to terrain</p><h2 id="rover-build">The build, frame by frame.</h2><p className="hex-section-lead">Follow the hardware, preparation and competition story. Select a frame for the closer look.</p></div><BuildCarousel frames={frames} label={`${project.title} build story`} /></section>
-    <section className="hex-section hex-section-tinted" aria-labelledby="rover-result"><div className="hex-section-inner hex-story-grid"><div className="hex-story-card" data-reveal><p className="eyebrow">05 / What we took forward</p><h2 id="rover-result">{basic ? "An award-winning first season." : "A design recognised."}</h2><p>{story.result}</p></div><div className="hex-story-card" data-reveal style={{transitionDelay:"180ms"}}><h3>What the season taught us.</h3><p>{story.reflection}</p></div></div></section>
+    <section className="hex-section hex-section-tinted" aria-labelledby="rover-result"><div className="hex-section-inner hex-story-grid"><div className="hex-story-card" data-reveal><p className="eyebrow">05 / What we took forward</p><Crown className={`award-crown ${basic ? "award-silver" : "award-bronze"}`} aria-label={basic ? "Silver crown: second nationally" : "Bronze crown: third nationally"}/><h2 id="rover-result">{basic ? "An award-winning first season." : "A design recognised."}</h2><p>{story.result}</p></div><div className="hex-story-card" data-reveal style={{transitionDelay:"180ms"}}><h3>What the season taught us.</h3><p>{story.reflection}</p></div></div></section>
     <div className="hex-section-inner rover-links"><Link href="/marshgazers">Meet the team</Link><Link href={`/projects/${basic ? "olympus-advanced" : "olympus-basic"}`}>{basic ? "Next: Olympus Advanced" : "Where it began: Olympus Basic"}</Link></div>
   </article>;
 }

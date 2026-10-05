@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { Crown } from "lucide-react";
 import Link from "next/link";
 import { useScrollReveals } from "./use-scroll-reveals";
 export function MarshGazersOverview() {
@@ -13,6 +14,6 @@ export function MarshGazersOverview() {
       <Link className="marsh-competition-card" href="/projects/olympus-basic" data-reveal><img src="/media/olympus-basic/rover-ral-space.webp" alt="Tracked Basic Stream rover on the vibration bed at RAL Space" width={1600} height={1066} loading="lazy" /><div><p className="eyebrow">2024–25 / UKSEDS × RAL Space</p><h3>Olympus Basic</h3><p>Teleoperated reconnaissance. Tracks, a two-joint camera arm and QR image collection.</p><span>Explore the first season ↗</span></div></Link>
       <Link className="marsh-competition-card marsh-competition-advanced" href="/projects/olympus-advanced" data-reveal style={{transitionDelay:"180ms"}}><img src="/media/olympus-advanced/rover-sand.webp" alt="Advanced Stream rover close up on the sand course" width={1600} height={1066} loading="lazy" /><div><p className="eyebrow">2025–26 / UKSEDS × Airbus</p><h3>Olympus Advanced</h3><p>Planetary sampling. Four-wheel mobility, a RASSOR-inspired drum and a design towards autonomy.</p><span>Explore the next mission ↗</span></div></Link>
     </div></div></section>
-    <section className="hex-section hex-section-tinted" aria-labelledby="marsh-awards"><div className="hex-section-inner"><div data-reveal><p className="eyebrow">04 / Recognition along the way</p><h2 id="marsh-awards">What we brought home.</h2></div><div className="marsh-awards"><div className="hex-story-card" data-reveal><p className="eyebrow">Basic Stream / 2024–25</p><h3>2nd place nationally</h3><p>Best Automation Award<br />Best Outreach Award</p></div><div className="hex-story-card" data-reveal style={{transitionDelay:"180ms"}}><p className="eyebrow">Advanced Stream / 2025–26</p><h3>Best Critical Design Review</h3><p>Preliminary Design Report: 73/100, Grade A.</p></div></div></div></section>
+    <section className="hex-section hex-section-tinted" aria-labelledby="marsh-awards"><div className="hex-section-inner"><div data-reveal><p className="eyebrow">04 / Recognition along the way</p><h2 id="marsh-awards">What we brought home.</h2></div><div className="marsh-awards"><div className="hex-story-card" data-reveal><p className="eyebrow">Basic Stream / 2024–25</p><Crown className="award-crown award-silver" aria-label="Silver crown"/><h3>2nd place nationally</h3><p>Best Automation Award<br />Best Outreach Award</p></div><div className="hex-story-card" data-reveal style={{transitionDelay:"180ms"}}><p className="eyebrow">Advanced Stream / 2025–26</p><Crown className="award-crown award-bronze" aria-label="Bronze crown"/><h3>3rd place nationally</h3><p>Best Critical Design Review: 89/100.<br/>Preliminary Design Report: 73/100, Grade A.</p></div></div></div></section>
   </article>;
 }

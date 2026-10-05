@@ -1850,3 +1850,53 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .ibm-story .hex-story-grid { grid-template-columns: 1fr; }
   .ibm-playmaker-logo { width: min(80vw, 320px); }
 }
+
+/* Compact documents, transparent phone outlines and a purposeful app preview. */
+.ibm-board-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); margin-block: 40px; }
+.ibm-board-grid figure { margin: 0; min-width: 0; }
+.ibm-board-preview { display: block; padding: 12px; background: #e4ddc9; border-radius: 12px; }
+.ibm-board-preview img { display: block; width: 100%; height: auto; }
+.ibm-board-grid figcaption { padding-top: 20px; }
+.ibm-board-grid figcaption h3 { font-size: clamp(1.5rem, 2vw, 2.5rem); }
+.ibm-board-grid figcaption a { display: inline-block; padding-block: 12px; color: inherit; font-size: 1.25rem; }
+.ibm-story .ibm-phone-gallery .hex-image-button { background: transparent !important; padding: 0; border-radius: 0; }
+.ibm-phone-gallery .hex-image-button img { height: 100%; width: auto; max-width: 100%; margin-inline: auto; }
+.hex-carousel-pair .hex-carousel-controls { display: none; }
+.hex-carousel-pair .hex-carousel-track { padding: 0 var(--hex-gutter) 24px; }
+.hex-carousel-pair .hex-carousel-container { display: grid; grid-template-columns: repeat(2, minmax(0, 380px)); justify-content: center; gap: clamp(32px, 6vw, 100px); transform: none !important; }
+.hex-carousel-pair .hex-carousel-slide { min-width: 0; width: 100%; }
+.hex-carousel-pair .hex-build-card { transform: none; opacity: 1; }
+.ibm-browser-chrome { display: flex; gap: 24px; align-items: center; padding: 16px 24px; border: 1px solid #665748; border-bottom: 0; border-radius: 18px 18px 0 0; background: #382e25; color: #f0ebdf; font-size: clamp(1rem, 1.4vw, 1.35rem); }
+.ibm-browser-chrome > span:first-child { color: #c7baaa; letter-spacing: 3px; white-space: nowrap; }
+.ibm-workspace-gallery .hex-carousel-track { padding: 0; }
+.ibm-workspace-gallery .hex-image-button { padding: 0; border-radius: 0 0 12px 12px; }
+.ibm-workspace-gallery .hex-build-card { opacity: 1; transform: none; }
+.ibm-workspace-gallery .hex-carousel-container { gap: 0; }
+.ibm-cv-note { font-size: clamp(1.125rem, 1.3vw, 1.5rem); color: #c7baaa; }
+.ibm-cv-note a { color: #f0ebdf; text-underline-offset: 4px; }
+.dr-hex-study .hex-disaster-banner::before { background: linear-gradient(90deg, #f0ebdff5 0%, #f0ebdfe8 30%, #f0ebdf90 55%, #f0ebdf12 80%, transparent 100%); }
+.dr-hex-study .hex-disaster-copy { width: 62%; }
+.tree-study .hex-hero { grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr); align-items: center; }
+.tree-study .hex-hero-image img { width: 100%; max-height: none; }
+#marsh-missions { text-align: center; }
+#marsh-missions + p, [aria-labelledby="marsh-missions"] .eyebrow { text-align: center; }
+.award-crown { width: 56px; height: 56px; margin-bottom: 16px; stroke-width: 1.4; }
+.award-silver { color: #68727b; fill: #c4cbd0; }
+.award-bronze { color: #875331; fill: #c89362; }
+.marsh-competition-card img, .catalog-card > img { transition: transform 650ms cubic-bezier(.22, 1, .36, 1); }
+.marsh-competition-card:hover img, .marsh-competition-card:focus-visible img, .catalog-card:hover > img, .catalog-card:focus-visible > img { transform: scale(1.035); }
+@media (max-width: 800px) {
+ .ibm-board-grid { grid-template-columns: 1fr; }
+ .tree-study .hex-hero { grid-template-columns: 1fr; }
+ .dr-hex-study .hex-disaster-copy { width: 80%; }
+ .dr-hex-study .hex-disaster-banner::before { background: linear-gradient(90deg, #f0ebdff2, #f0ebdfd4 50%, #f0ebdf24); }
+}
+@media (max-width: 600px) {
+ .hex-carousel-pair .hex-carousel-container { grid-template-columns: minmax(0, 360px); gap: 36px; }
+ .dr-hex-study .hex-disaster-copy { width: 100%; }
+ .dr-hex-study .hex-disaster-banner::before { background: linear-gradient(90deg, #f0ebdff0, #f0ebdfc4 65%, #f0ebdf80); }
+}
+@media (prefers-reduced-motion: reduce) {
+ .marsh-competition-card img, .catalog-card > img { transition: none; }
+ .marsh-competition-card:hover img, .catalog-card:hover > img { transform: none; }
+}

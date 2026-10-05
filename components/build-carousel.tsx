@@ -7,9 +7,9 @@ import type { Media } from "@/content/types";
 
 export type BuildFrame = { media: Media; title: string; caption: string; context: string };
 
-export function BuildCarousel({ frames, label }: { frames: BuildFrame[]; label: string }) {
+export function BuildCarousel({ frames, label, pair = false }: { frames: BuildFrame[]; label: string; pair?: boolean }) {
   const previewId = useId();
-  const [carouselViewport, carousel] = useEmblaCarousel({ align: "center", loop: true, duration: 30 });
+  const [carouselViewport, carousel] = useEmblaCarousel({ align: "center", loop: true, duration: 30, active: !pair });
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
   const [selected, setSelected] = useState<BuildFrame | null>(null);
@@ -48,7 +48,7 @@ export function BuildCarousel({ frames, label }: { frames: BuildFrame[]; label: 
     }
   }
 
-  return <div className="hex-carousel">
+  return <div className={`hex-carousel${pair ? " hex-carousel-pair" : ""}`}>
     <div className="hex-carousel-controls">
       <p aria-live="polite" aria-atomic="true">{String(position + 1).padStart(2, "0")} / {String(frames.length).padStart(2, "0")}</p>
       <button type="button" className="hex-carousel-arrow hex-carousel-prev" onClick={() => move(-1)} aria-label="Previous image"><ArrowLeft aria-hidden="true" /></button>

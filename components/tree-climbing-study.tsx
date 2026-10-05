@@ -18,7 +18,7 @@ const stages=[
 ];
 export function TreeClimbingStudy({project}:{project:Project}) {
  const study=useRef<HTMLElement>(null);useScrollReveals(study);
- const hero=project.media.find(m=>m.src.endsWith('/assembled-prototype.webp'));
+ const hero={src:"/media/tree-climbing-robot/compliant-hero.webp",alt:"Close-up of the compliant string-actuated gripper prototype and its electronics",width:2000,height:1701};
  const frames:BuildFrame[]=stages.flatMap(stage=>{const media=project.media.find(m=>m.src.endsWith('/'+stage.file));return media?[{media,title:stage.title,caption:media.caption||stage.title,context:stage.context}]:[];});
  return <article className="tree-study project-story-study" ref={study}>
   <header className="hex-hero"><div className="hex-intro"><p className="eyebrow hex-enter">UCL / First Year, Final Term Challenge</p><h1><span className="hex-title">Tree Climbing Robot</span></h1><p className="hex-summary hex-enter">Climb a tree. Place a canopy sensor. Find a way back down.</p></div>{hero&&<figure className="hex-hero-image"><img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} loading="eager"/></figure>}</header>
