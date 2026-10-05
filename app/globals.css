@@ -1759,3 +1759,94 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .catalog-marsh-heading { flex-direction: column; align-items: flex-start; gap: 12px; }
   .rover-partners img { max-width: 120px; max-height: 36px; }
 }
+
+/* Personal pages use espresso; project collections keep their light palette. */
+.personal-story-shell {
+  --background: #211d19;
+  --foreground: #f0ebdf;
+  --muted: #c7baaa;
+  --border: #665748;
+  color-scheme: dark;
+  background: var(--background);
+  color: var(--foreground);
+}
+.personal-story-shell .site-nav, .personal-story-shell .site-footer { color: var(--foreground); }
+.personal-story-shell .home-navigation-links { background: #211d19; }
+.personal-story-shell .home-navigation .home-navigation-links > a:hover { background: #382e25; }
+.personal-story-shell .site-footer { margin-top: 32px; }
+.personal-story-shell .about-cover { background: #211d19; }
+.personal-story-shell .about-interests { background: #30271f; }
+.personal-story-shell .about-values { background: #e4ddc9; color: #211d19; }
+.personal-story-shell .about-values .eyebrow { color: #61604e; }
+.personal-story-shell .about-next { background: #382e25; }
+.personal-story-shell .contact-form { background: #382e25; }
+.personal-story-shell .contact-form input, .personal-story-shell .contact-form textarea { color-scheme: light; }
+.personal-story-shell .contact-form button { background: #e4ddc9; color: #211d19; }
+.personal-story-shell .connect-grid aside { background: #30271f; }
+.personal-story-shell input::placeholder { color: #716758; opacity: 1; }
+
+/* IBM: a people-led story with room for the work and its evidence. */
+.ibm-story-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 80px); align-items: center; padding: clamp(40px, 5vw, 96px) var(--hex-gutter); }
+.ibm-story h1 { font-size: clamp(3.5rem, 7.5vw, 10rem); line-height: 1.05; }
+.ibm-story .ibm-role { font-size: 1.375rem; color: #c7baaa; margin-block: 0 24px; }
+.ibm-story .hex-summary { max-width: 42rem; }
+.ibm-story .hex-section-lead { font-size: clamp(1.375rem, 1.6vw, 1.875rem); line-height: 1.55; }
+.ibm-story-card { padding: clamp(24px, 3vw, 48px); border: 1px solid var(--border); border-radius: 24px; background: #382e25; }
+.ibm-story-card p { font-size: 1.375rem; line-height: 1.55; }
+.ibm-story-card p:last-child { margin-bottom: 0; }
+.ibm-warm-section { background: #e4ddc9; color: #211d19; }
+.ibm-warm-section .eyebrow { color: #61604e; }
+.ibm-question-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
+.ibm-question-grid > div { border-top: 1px solid #857960; padding-top: 24px; }
+.ibm-question-grid span { display: block; margin-bottom: 20px; color: #61604e; font-size: 1.125rem; }
+.ibm-process-gallery { background: #30271f; }
+.ibm-story .hex-build-card { color: inherit; }
+.ibm-story .hex-build-card .hex-image-button { background: #e4ddc9; }
+.ibm-touchpoints { padding-top: 64px; }
+.ibm-touchpoint-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.ibm-touchpoint-grid > div { padding: 24px; border: 1px solid #665748; border-radius: 16px; background: #382e25; }
+.ibm-touchpoint-grid h4 { font-size: 1.375rem; line-height: 1.25; font-weight: 400; margin: 12px 0; }
+.ibm-touchpoint-grid p { font-size: 1.125rem; margin: 0; }
+.ibm-touchpoint-grid .eyebrow { font-size: 1rem; }
+.ibm-playmaker-section { background: #211d19; }
+.ibm-playmaker-intro { text-align: center; padding-bottom: 56px; }
+.ibm-playmaker-logo { display: block; width: clamp(240px, 30vw, 480px); height: auto; margin: 32px auto; }
+.ibm-story .ibm-playmaker-intro h2 { font-size: clamp(4.5rem, 9vw, 12rem); line-height: 1.1; margin-bottom: 24px; }
+.ibm-playmaker-intro .hex-section-lead { margin-inline: auto; max-width: 60rem; }
+.ibm-review-loop { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0; margin: 48px 0; list-style: none; }
+.ibm-review-loop li { padding: 24px; border-top: 1px solid #665748; }
+.ibm-review-loop span { display: block; margin-bottom: 20px; color: #c7baaa; font-size: 1.125rem; }
+.ibm-review-loop p { font-size: 1.25rem; }
+.ibm-workspace-gallery .hex-carousel { --build-frame-width: 100%; }
+.ibm-workspace-gallery .hex-carousel-controls { display: none; }
+.ibm-workspace-gallery .hex-image-button { aspect-ratio: 1945 / 1090; height: auto; }
+.ibm-workspace-gallery .hex-build-card:not(.is-active) { opacity: 1; transform: none; }
+.ibm-workspace-gallery .hex-carousel-slide { padding: 0; }
+.ibm-phone-gallery .hex-carousel { --build-frame-width: max(280px, 27vw); }
+.ibm-phone-gallery .hex-image-button { height: clamp(420px, 42vw, 680px); aspect-ratio: auto; padding: 16px; }
+.ibm-phone-gallery .hex-carousel-controls .hex-carousel-arrow { top: calc(60px + clamp(420px, 42vw, 680px) * .5); }
+.ibm-original-gallery { background: #e4ddc9; color: #211d19; }
+.ibm-original-gallery .eyebrow { color: #61604e; }
+.ibm-original-gallery .hex-image-button { background: #d5cbb6 !important; }
+.ibm-prototype-gallery { background: #211d19; }
+.ibm-showcase-section { background: #30271f; }
+.ibm-credits { margin-top: 56px; padding: clamp(24px, 3vw, 48px); background: #382e25; border-radius: 24px; }
+.ibm-credits p { font-size: 1.375rem; line-height: 1.55; }
+.ibm-story .hex-lightbox { background: #f0ebdf; color: #33352a; color-scheme: light; }
+.ibm-story .hex-lightbox::backdrop { background: #110e0cdd; }
+@media (max-width: 1000px) {
+  .ibm-touchpoint-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 800px) {
+  .ibm-story-hero { grid-template-columns: 1fr; }
+  .ibm-story h1 { font-size: clamp(3.25rem, 12vw, 6rem); }
+  .ibm-question-grid, .ibm-review-loop { grid-template-columns: 1fr 1fr; }
+  .ibm-phone-gallery .hex-carousel { --build-frame-width: 80vw; }
+  .ibm-phone-gallery .hex-image-button { height: 560px; max-height: 72svh; }
+  .ibm-phone-gallery .hex-carousel-controls .hex-carousel-arrow { top: calc(60px + min(560px, 72svh) * .5); }
+}
+@media (max-width: 520px) {
+  .ibm-question-grid, .ibm-touchpoint-grid, .ibm-review-loop { grid-template-columns: 1fr; }
+  .ibm-story .hex-story-grid { grid-template-columns: 1fr; }
+  .ibm-playmaker-logo { width: min(80vw, 320px); }
+}

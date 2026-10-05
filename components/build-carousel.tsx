@@ -38,15 +38,21 @@ export function BuildCarousel({ frames, label }: { frames: BuildFrame[]; label: 
 
   function move(direction: number) {
     const jump = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (direction < 0) carousel?.scrollPrev(jump);
-    else carousel?.scrollNext(jump);
+    if (!carousel || frames.length < 2) return;
+    if (direction < 0) {
+      if (carousel.canScrollPrev()) carousel.scrollPrev(jump);
+      else carousel.scrollTo(frames.length - 1, jump);
+    } else {
+      if (carousel.canScrollNext()) carousel.scrollNext(jump);
+      else carousel.scrollTo(0, jump);
+    }
   }
 
   return <div className="hex-carousel">
     <div className="hex-carousel-controls">
       <p aria-live="polite" aria-atomic="true">{String(position + 1).padStart(2, "0")} / {String(frames.length).padStart(2, "0")}</p>
-      <button type="button" className="hex-carousel-arrow hex-carousel-prev" onClick={() => move(-1)} aria-label="Previous build image"><ArrowLeft aria-hidden="true" /></button>
-      <button type="button" className="hex-carousel-arrow hex-carousel-next" onClick={() => move(1)} aria-label="Next build image"><ArrowRight aria-hidden="true" /></button>
+      <button type="button" className="hex-carousel-arrow hex-carousel-prev" onClick={() => move(-1)} aria-label="Previous image"><ArrowLeft aria-hidden="true" /></button>
+      <button type="button" className="hex-carousel-arrow hex-carousel-next" onClick={() => move(1)} aria-label="Next image"><ArrowRight aria-hidden="true" /></button>
     </div>
     <div className="hex-carousel-track" ref={carouselViewport} tabIndex={0} role="region" aria-roledescription="carousel" aria-label={label}
       onKeyDown={event => {
