@@ -3,8 +3,8 @@ import { useRef } from "react";
 import Link from "next/link";
 import { BuildCarousel, type BuildFrame } from "./build-carousel";
 import { useScrollReveals } from "./use-scroll-reveals";
-import { ibmMedia } from "@/contentimport { InlineArrow } from "@/components/inline-arrow";
-/ibm-media";
+import { ibmMedia } from "@/content/ibm-media";
+import { InlineArrow } from "@/components/inline-arrow";
 function frame(key:keyof typeof ibmMedia,title:string,caption:string,context:string,alt:string):BuildFrame {
  return {media:{kind:"image",...ibmMedia[key],alt},title,caption,context};
 }
