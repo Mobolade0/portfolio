@@ -38,13 +38,8 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
   function showSlide(index: number) {
     profileCarousel?.scrollTo(index, window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
-  function showExperience() {
-    document.getElementById("profile")?.scrollIntoView({ block: "nearest" });
-    showSlide(2);
-  }
-
   return <div className={`portfolio-home${showPhotos ? " show-photos" : ""}`}>
-      <HomeNavigation onExperience={showExperience} />
+      <HomeNavigation />
     <div className="home-left">
     <header className="home-header">
       <div className="identity"><h1>{profile.name}</h1></div>
@@ -97,7 +92,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
     </div>
 
     <section className="work-panel" id="work" aria-label="Selected engineering projects">
-      <div className="work-toolbar"><h2 className="eyebrow">Selected projects <span className="work-count">/ 0{projects.length}</span></h2>
+      <div className="work-toolbar"><h2 className="eyebrow">Selected projects<span className="desktop-project-note-marker" aria-hidden="true">*</span> <span className="work-count">/ 0{projects.length}</span></h2>
         <span className="eyebrow">Scroll to explore <ArrowDown size={12} aria-hidden="true" /></span>
       </div>
       <div id="project-gallery" className="project-feed" tabIndex={0} role="region" aria-label="Project gallery">
@@ -129,6 +124,7 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
           </article>;
         })}
         <div className="gallery-end"><p>More of the process.</p><Link href="/projects">Explore all projects <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+        <p className="project-ai-note">* AI-assisted technical sketches are based on project photographs. All photographs show real prototypes built by me or my project teams.</p>
       </div>
     </section>
       <footer className="personal-footer mobile-personal-footer" aria-label="Contact Yusuf">
