@@ -1738,7 +1738,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 /* About is a personal introduction with room for the portrait. */
 .personal-about > section { padding: clamp(40px, 6vw, 96px) var(--hex-gutter); }
 .about-cover { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); padding: clamp(24px, 4vw, 64px) var(--hex-gutter); align-items: center; background: #e4ddc9; }
-.about-cover > img { display: block; width: 100%; height: auto; max-height: 740px; object-fit: contain; border-radius: 24px; }
+.about-cover > img { display: block; width: min(100%, 720px); height: auto; max-height: 900px; object-fit: contain; border-radius: 30px; justify-self: center; }
 .document-main .about-cover h1 { font-size: clamp(4rem, 8vw, 10rem); margin: 12px 0 24px; }
 .personal-about p { font-size: clamp(1.375rem, 1.6vw, 1.875rem); line-height: 1.55; max-width: 66rem; }
 .personal-about .about-cover-lead { font-size: clamp(1.75rem, 2.4vw, 3rem); line-height: 1.3; }
@@ -1995,11 +1995,12 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   }
 
   .catalog-card > img {
-    width: calc(100% - 24px);
-    height: clamp(260px, 74vw, 430px);
-    margin: 12px auto 0;
+    width: calc(100% - 20px);
+    height: auto;
+    max-height: none;
+    margin: 10px auto 0;
     padding: 0;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 24px;
   }
 
@@ -2015,7 +2016,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .about-cover > img {
     width: 100%;
     max-height: none;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 30px;
   }
 }
