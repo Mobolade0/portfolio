@@ -12,6 +12,14 @@
 }
 
 @font-face {
+  font-family: "Tw Cen MT Web";
+  src: url("/fonts/TwCenMT-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
 
   font-family: "Poynter Display";
   src: url("/fonts/PoynterOSDisp-Semibold.woff2") format("woff2");
@@ -1942,4 +1950,72 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   display: inline-block;
   flex: 0 0 auto;
   vertical-align: -0.16em;
+}
+
+
+/* Homepage disclosure and mobile project refinements */
+.desktop-project-note-marker {
+  margin-left: 0.15em;
+}
+
+.project-ai-note {
+  margin: 12px 0 36px;
+  max-width: 42rem;
+  font-size: .68rem;
+  line-height: 1.45;
+  color: var(--muted);
+  opacity: .82;
+}
+
+@media (max-width: 999px) {
+  body,
+  button,
+  input,
+  textarea,
+  select,
+  .eyebrow,
+  .metadata,
+  .profile-detail,
+  .motion-toggle,
+  .image-note,
+  .work-bottom,
+  .project-summary {
+    font-family: "Tw Cen MT Web", "Avenir Next", Avenir, "Century Gothic", Futura, Arial, sans-serif;
+  }
+
+  .desktop-project-note-marker,
+  .project-ai-note {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-card {
+    border-radius: 30px;
+  }
+
+  .catalog-card > img {
+    width: calc(100% - 24px);
+    height: clamp(260px, 74vw, 430px);
+    margin: 12px auto 0;
+    padding: 0;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  .catalog-card > div {
+    padding: 24px 26px 28px;
+  }
+
+  .catalog-marsh-heading > img {
+    width: min(72vw, 320px);
+    border-radius: 22px;
+  }
+
+  .about-cover > img {
+    width: 100%;
+    max-height: none;
+    object-fit: cover;
+    border-radius: 30px;
+  }
 }
