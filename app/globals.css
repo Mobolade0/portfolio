@@ -2020,3 +2020,84 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
     border-radius: 30px;
   }
 }
+
+
+/* Portfolio consistency pass */
+.marsh-competition-card .eyebrow {
+  text-align: left;
+}
+
+.catalog-card,
+.catalog-card:hover,
+.catalog-card:focus,
+.catalog-card:focus-visible {
+  text-decoration: none;
+}
+
+.catalog-card p,
+.catalog-card:hover p,
+.catalog-card:focus p,
+.catalog-card:focus-visible p {
+  text-decoration: none !important;
+}
+
+.catalog-card h3 {
+  display: inline-block;
+  text-decoration: none;
+  text-underline-offset: 6px;
+}
+
+.catalog-card:hover h3,
+.catalog-card:focus-visible h3 {
+  text-decoration: underline;
+}
+
+.catalog-card > img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.catalog-marsh-group .catalog-card > img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.ibm-story-hero {
+  align-items: center;
+}
+
+.ibm-story-hero .hex-hero-image {
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.ibm-story-hero .hex-hero-image img {
+  object-position: center;
+}
+
+.tree-study .hex-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+}
+
+.tree-study .hex-hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tree-study .hex-hero-image img {
+  width: min(100%, 760px);
+  max-height: 540px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .catalog-card > img,
+  .catalog-marsh-group .catalog-card > img {
+    width: calc(100% - 20px);
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+}
