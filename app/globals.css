@@ -3,9 +3,7 @@
 @font-face {
   font-family: "Tw Cen MT";
   src:
-    local("Tw Cen MT"),
-    local("Tw Cen MT Regular"),
-    url("/fonts/TwCenMT-Regular.woff2") format("woff2");
+    url("/fonts/TwCenMT-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -13,7 +11,7 @@
 
 @font-face {
   font-family: "Tw Cen MT Web";
-  src: url("/fonts/TwCenMT-Regular.woff2") format("woff2");
+  src: url("/fonts/TwCenMT-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -1891,7 +1889,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .ibm-workspace-gallery .hex-image-button { padding: 0; border-radius: 0 0 12px 12px; }
 .ibm-workspace-gallery .hex-build-card { opacity: 1; transform: none; }
 .ibm-workspace-gallery .hex-carousel-container { gap: 0; }
-.ibm-cv-note { font-size: clamp(1.125rem, 1.3vw, 1.5rem); color: #c7baaa; }
+.ibm-cv-note { margin: 20px var(--hex-gutter) 0; font-size: 1rem; line-height: 1.5; color: #c7baaa; }
 .ibm-cv-note a { color: #f0ebdf; text-underline-offset: 4px; }
 .dr-hex-study .hex-disaster-banner::before { background: linear-gradient(90deg, #f0ebdff5 0%, #f0ebdfe8 30%, #f0ebdf90 55%, #f0ebdf12 80%, transparent 100%); }
 .dr-hex-study .hex-disaster-copy { width: 62%; }
@@ -2100,4 +2098,19 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
     aspect-ratio: auto;
     object-fit: cover;
   }
+}
+
+/* The team story pairs each chapter with its own photograph. */
+.marsh-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.marsh-story-photo { margin: 0; min-width: 0; }
+.marsh-story-photo img { display: block; width: 100%; height: auto; border-radius: 24px; }
+.marsh-story-photo figcaption { margin-top: 12px; font-size: 1rem; color: var(--muted); }
+.marsh-founders-grid > div { grid-column: 2; grid-row: 1; }
+.marsh-founders-grid > figure { grid-column: 1; grid-row: 1; }
+.marsh-partners { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(24px, 5vw, 72px); margin-top: 48px; padding: 24px; border-radius: 20px; background: #f0ebdf; }
+.marsh-partners img { width: clamp(100px, 15vw, 200px); height: 64px; object-fit: contain; }
+@media (max-width: 800px) {
+  .marsh-story-grid { grid-template-columns: 1fr; }
+  .marsh-founders-grid > div, .marsh-founders-grid > figure { grid-column: auto; grid-row: auto; }
+  .marsh-partners img { height: 48px; }
 }
