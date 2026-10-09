@@ -21,6 +21,14 @@ const projectSketches: Partial<Record<string, string>> = {
 export function PortfolioHome({ projects }: { projects: Project[] }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [showPhotos, setShowPhotos] = useState(false);
+
+  useEffect(() => {
+    const phoneTouch = window.matchMedia("(max-width: 767px) and (pointer: coarse) and (any-hover: none)");
+    const resetDesktopView = () => { if (!phoneTouch.matches) setShowPhotos(false); };
+    resetDesktopView();
+    phoneTouch.addEventListener("change", resetDesktopView);
+    return () => phoneTouch.removeEventListener("change", resetDesktopView);
+  }, []);
   const [profileViewport, profileCarousel] = useEmblaCarousel({ align: "start", loop: false, duration: 28 });
   const [tabPosition, setTabPosition] = useState(0);
 
@@ -73,11 +81,12 @@ export function PortfolioHome({ projects }: { projects: Project[] }) {
           <div className="profile-panels">
           {profileSlides.map((item, index) => <div key={item.id} id={`profile-panel-${item.id}`}
             className={`profile-slide profile-slide-${item.id}`} role="tabpanel" aria-labelledby={`profile-tab-${item.id}`} inert={slideIndex !== index}>
-            {item.media?.kind === "image" && <Link href={item.href} aria-label={`Explore ${item.heading}`} className={`profile-panel-media${item.id === "about" ? " profile-portrait" : ""}`}>
+            {item.media?.kind === "image" && <div className={`profile-panel-media${item.id === "about" ? " profile-portrait" : ""}`}>
               <Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height}
                 sizes="(max-width: 600px) 85vw, 22vw" unoptimized priority={index === 0} draggable={false} />
-            </Link>}
-            <div className="profile-copy"><h2><Link href={item.href}>{item.heading}</Link></h2><p className="profile-body">{item.body}</p>
+            </div>}
+            <div className="profile-copy"><h2>{item.heading}</h2><p className="profile-body">{item.body}</p>
+              <Link className="profile-learn-more" href={item.href}>Learn more <ArrowUpRight size={16} aria-hidden="true" /></Link>
             </div>
           </div>)}
           </div>

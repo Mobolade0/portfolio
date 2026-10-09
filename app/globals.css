@@ -1099,7 +1099,7 @@ html { scroll-padding-top: 5rem; }
 .show-photos .project-visual.has-sketch .project-sketch-layer { opacity: 0; }
 
 /* Touch users can change every cover without hover. */
-@media (max-width: 999px), (hover: none) {
+@media (max-width: 767px) and (pointer: coarse) and (any-hover: none) {
   .photo-view-toggle {
     position: fixed;
     right: max(16px, env(safe-area-inset-right));
@@ -1122,7 +1122,7 @@ html { scroll-padding-top: 5rem; }
   .photo-view-toggle[aria-checked="true"] .photo-view-track { background: #494c35; }
   .photo-view-toggle[aria-checked="true"] .photo-view-track span { transform: translateX(14px); }
 }
-@media (hover: none) and (any-hover: none) {
+@media (max-width: 767px) and (pointer: coarse) and (any-hover: none) {
   .project-visual.has-sketch:hover .project-sketch-layer { opacity: 1; }
   .show-photos .project-visual.has-sketch:hover .project-sketch-layer { opacity: 0; }
 }
@@ -2131,12 +2131,9 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 :is(.catalog-card, .catalog-marsh-heading, .marsh-competition-card, .marsh-team-link, .marsh-home-badge, .profile-panel-media):is(:hover, :focus-visible) { text-decoration: none; }
 :is(.catalog-card, .catalog-marsh-heading, .marsh-competition-card, .marsh-team-link, .marsh-home-badge):is(:hover, :focus-visible) :is(h2,h3) { text-decoration: underline; text-underline-offset: .2em; }
 .catalog-card span, .marsh-competition-card span { text-decoration: none; }
-.profile-copy h2 a { color: inherit; text-decoration: none; }
-.profile-copy h2 a:is(:hover, :focus-visible) { text-decoration: underline; }
 .hex-image-button { cursor: zoom-in; }
-.hex-image-button img, .profile-panel-media img { transition: transform 450ms ease; }
-.hex-image-button:is(:hover, :focus-visible) img, .profile-panel-media:is(:hover, :focus-visible) img { transform: scale(1.035); }
-.profile-panel-media { overflow: hidden; color: inherit; }
+.hex-image-button img { transition: transform 450ms ease; }
+.hex-image-button:is(:hover, :focus-visible) img { transform: scale(1.035); }
 
 /* Colour photography with a soft paper fade behind the copy. */
 .exo-human-banner .hex-disaster-image { filter: none; object-position: center; }
@@ -2182,7 +2179,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .ibm-timeline-group h4 { margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hex-image-button img, .profile-panel-media img, .ibm-board-preview img { transition: none; }
+  .hex-image-button img, .ibm-board-preview img { transition: none; }
 }
 
 @media (min-width: 1000px) {
