@@ -9,7 +9,7 @@ export type BuildFrame = { media: Media; title: string; caption: string; context
 
 export function BuildCarousel({ frames, label, pair = false }: { frames: BuildFrame[]; label: string; pair?: boolean }) {
   const previewId = useId();
-  const [carouselViewport, carousel] = useEmblaCarousel({ align: "center", loop: true, duration: 30, active: !pair });
+  const [carouselViewport, carousel] = useEmblaCarousel({ align: "center", loop: true, duration: 30, active: !pair, breakpoints: { "(max-width: 600px)": { active: true } } });
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
   const [selected, setSelected] = useState<BuildFrame | null>(null);
@@ -67,8 +67,6 @@ export function BuildCarousel({ frames, label, pair = false }: { frames: BuildFr
           <img src={frame.media.src} alt={frame.media.alt} width={frame.media.width} height={frame.media.height} loading="lazy" draggable={false} />
         </button>
         <figcaption><h3>{frame.title}</h3><p>{frame.caption}</p>
-          <button type="button" className="hex-stage-details" aria-label={`Read more: ${frame.title}`}
-            onClick={event => { opener.current = event.currentTarget; setSelected(frame); }}>Learn more</button>
         </figcaption>
       </figure></div>)}
       </div>

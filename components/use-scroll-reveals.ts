@@ -30,7 +30,7 @@ export function useScrollReveals(root: RefObject<HTMLElement | null>) {
       if (!urgency) return;
       const rect = urgency.getBoundingClientRect();
       // Turn red while the line is still on screen, and reverse when scrolling back up.
-      urgency.classList.toggle("is-urgent", rect.top < window.innerHeight * .45);
+      urgency.classList.toggle("is-urgent", rect.top + rect.height / 2 < window.innerHeight * .65);
     };
     const onScroll = () => { if (!frame) frame = window.requestAnimationFrame(updateUrgency); };
     if (urgency) {

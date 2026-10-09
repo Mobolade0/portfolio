@@ -19,7 +19,7 @@ export function RoverStudy({ project }: { project: Project }) {
   });
   return <article className={`rover-study project-story-study ${basic ? "rover-basic" : "rover-advanced"}`} ref={study}>
     <header className="hex-hero">
-      <div className="hex-intro"><Link className="marsh-team-link" href="/marshgazers"><img src="/media/marshgazers/logo.png" alt="" width={2048} height={962} />Meet MarshGazers</Link>
+      <div className="hex-intro"><Link className="marsh-team-link" href="/marshgazers"><img src="/media/marshgazers/logo.png" alt="" width={2048} height={962} /><span className="linked-title">Meet MarshGazers</span></Link>
         <div className="rover-partners" aria-label="Competition organisations"><img src="/media/partners/ukseds.png" alt="UKSEDS" width={1989} height={528}/><img src={basic ? "/media/partners/ral-space.png" : "/media/partners/airbus.png"} alt={basic ? "RAL Space" : "Airbus"} width={basic ? 476 : 2048} height={basic ? 148 : 758}/></div>
         <p className="eyebrow hex-enter">UCL East / {story.stage}</p><h1><span className="hex-title">{project.title}</span></h1><p className="hex-summary hex-enter">{story.title}</p>
       </div>

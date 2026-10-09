@@ -1,4 +1,5 @@
 export const ibmMedia = {
+  "yusuf-pdlc-presentation": { src: "/media/ibm/yusuf-pdlc-presentation.webp", width: 2047, height: 1366 },
   "intern-team": {
     "src": "/media/ibm/intern-team.webp",
     "width": 2000,
