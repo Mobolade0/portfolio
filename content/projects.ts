@@ -17,7 +17,7 @@ export const projects: Project[] = [
     summary: "A primarily autonomous Mars rover developed with Team MarshGazers for the UKSEDS and Airbus Olympus Rover Trials Advanced Stream, designed to collect planetary samples.",
     contributions: ["Led the mechanical subteam through concept selection, engineering justification and prototyping.", "Led mobility and sampling architecture development, with CAD and CAM in Autodesk Fusion 360.", "Presented build plans, risks and engineering trade-offs to supervisors and workshop stakeholders."],
     decisions: ["Selected a four-wheel skid-steer mobility architecture.", "Adapted the bucket drum collection principle used in NASA RASSOR concepts to the team's manufacturing resources and rover constraints."],
-    teamOutcomes: ["Preliminary Design Report: 73/100, Grade A.", "Won Best CDR at the final competition."],
+    teamOutcomes: ["Best Critical Design Review."],
     evidenceLimits: ["Further final-build, test and competition evidence awaits the project reports and media archive."],
     tags: ["Mechanical design", "CAD / CAM", "Leadership"], media: projectMedia["olympus-advanced"], source: masterSource,
   },

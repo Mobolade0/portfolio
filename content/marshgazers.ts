@@ -34,7 +34,7 @@ export const roverStories = {
       { title: "Collect, carry, deposit.", body: "The sampling design drew on the RASSOR principle: counter-rotating bucket drums working in loose regolith. I led adaptation of the concept to our manufacturing resources and the competition's collection and deposition constraints." },
       { title: "Design towards autonomy.", body: "The mission architecture targeted onboard localisation and mapping, path planning and obstacle avoidance, with supervised teleoperation as a recovery mode. These were design goals; a fully autonomous end-to-end mission is not claimed here." },
     ],
-    result: "We placed third nationally and won Best Critical Design Review (CDR), scoring 89/100. Our Preliminary Design Report had also received 73/100, a Grade A. The photographs show the final hardware and field preparation behind that design work.",
+    result: "We placed third nationally and won Best Critical Design Review. The photographs show the final hardware and field preparation behind that design work.",
     reflection: "Moving from a camera rover to a sampling system meant coordinating mobility, excavation, sensing and software around one mission. The available evidence supports the design work, assembled vehicle and review award; it does not establish a measured autonomous sampling success rate.",
     frames: [
       {file:"rover-bench.webp", title:"Packaging the system", caption:"Mobility, sensing and sampling in one assembly.", context:"The assembled rover on its support stand shows how the wheels, chassis, electronics and sensing were packaged. I led the mechanical subteam, with mobility and sampling architecture and CAD/CAM among my responsibilities."},

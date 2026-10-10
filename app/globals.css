@@ -1705,7 +1705,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .catalog-card[data-project="tree-climbing-robot"] { background: #cbd1bb; }
 .catalog-card[data-project="olympus-basic"] { background: #e6decc; }
 .catalog-card[data-project="olympus-advanced"] { background: #d5cbb6; }
-.catalog-card > img { display: block; width: 100%; height: clamp(200px, 24vw, 400px); object-fit: contain; padding: 16px; }
+.catalog-card > img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; padding: 0; }
 .catalog-card > div { padding: 24px; }
 .catalog-card h3 { font-size: clamp(1.75rem, 2.3vw, 2.75rem); }
 .catalog-card p { font-size: 1.25rem; line-height: 1.5; }
@@ -1993,13 +1993,13 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   }
 
   .catalog-card > img {
-    width: calc(100% - 20px);
+    width: 100%;
     height: auto;
     max-height: none;
-    margin: 10px auto 0;
+    margin: 0;
     padding: 0;
     object-fit: contain;
-    border-radius: 24px;
+    border-radius: 0;
   }
 
   .catalog-card > div {
@@ -2051,7 +2051,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 }
 
 .catalog-card > img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
 }
 
@@ -2093,7 +2093,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 @media (max-width: 600px) {
   .catalog-card > img,
   .catalog-marsh-group .catalog-card > img {
-    width: calc(100% - 20px);
+    width: 100%;
     height: auto;
     aspect-ratio: auto;
     object-fit: cover;
