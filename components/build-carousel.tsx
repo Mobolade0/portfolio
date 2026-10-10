@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Media } from "@/content/types";
@@ -14,6 +14,9 @@ export function BuildCarousel({ frames, label, pair = false }: { frames: BuildFr
   const opener = useRef<HTMLButtonElement | null>(null);
   const [selected, setSelected] = useState<BuildFrame | null>(null);
   const [position, setPosition] = useState(0);
+  // Keep a common frame within each gallery, tailored to its source images.
+  const ratios = frames.map(({ media }) => (media.width || 1) / (media.height || 1)).sort((a, b) => a - b);
+  const frameRatio = Math.max(.75, Math.min(1.8, ratios[Math.floor(ratios.length / 2)] || 1.5));
 
   useEffect(() => {
     if (!selected || !dialog.current) return;
@@ -48,7 +51,7 @@ export function BuildCarousel({ frames, label, pair = false }: { frames: BuildFr
     }
   }
 
-  return <div className={`hex-carousel${pair ? " hex-carousel-pair" : ""}`}>
+  return <div className={`hex-carousel${pair ? " hex-carousel-pair" : ""}`} style={{ "--gallery-ratio": frameRatio } as CSSProperties}>
     <div className="hex-carousel-controls">
       <p aria-live="polite" aria-atomic="true">{String(position + 1).padStart(2, "0")} / {String(frames.length).padStart(2, "0")}</p>
       <button type="button" className="hex-carousel-arrow hex-carousel-prev" onClick={() => move(-1)} aria-label="Previous image"><ArrowLeft aria-hidden="true" /></button>

@@ -15,7 +15,7 @@ export function ProjectsCatalog({projects}:{projects:Project[]}) {
   const [active,setActive]=useState(0);
   const tabs=useRef<Array<HTMLButtonElement|null>>([]);
   const rovers=projects.filter(p=>p.slug.startsWith("olympus-"));
-  return <article className="projects-catalog"><header><p className="eyebrow">Ideas made physical</p><h1>My Projects</h1></header>
+  return <article className="projects-catalog"><header className="page-enter"><p className="eyebrow">Ideas made physical</p><h1>My Projects</h1></header>
     <div className="catalog-tabs" role="tablist" aria-label="Project collections">{["All projects","MarshGazers"].map((name,i)=><button key={name} ref={node=>{tabs.current[i]=node;}} type="button" role="tab" id={`catalog-tab-${i}`} aria-selected={active===i} aria-controls="catalog-panel" tabIndex={active===i?0:-1} onClick={()=>setActive(i)} onKeyDown={event=>{
       const next=event.key==="ArrowLeft"||event.key==="ArrowRight"?1-i:event.key==="Home"?0:event.key==="End"?1:null;
       if(next!==null){event.preventDefault();setActive(next);tabs.current[next]?.focus();}

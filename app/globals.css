@@ -1496,11 +1496,11 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 }
 
 /* Shared project palette for the homepage cards and case-study openings. */
-[data-project="exoskeleton"] { --project-color: #f0ebdf; --project-ink: #33352a; --project-muted: #61604e; }
-[data-project="olympus-advanced"] { --project-color: #e6decc; --project-ink: #33352a; --project-muted: #61604e; }
+[data-project="exoskeleton"] { --project-color: #d8d8bb; --project-ink: #33352a; --project-muted: #61604e; }
+[data-project="olympus-advanced"] { --project-color: #e4ddc9; --project-ink: #33352a; --project-muted: #61604e; }
 [data-project="dr-hex"] { --project-color: #e4ddc9; --project-ink: #33352a; --project-muted: #61604e; }
 [data-project="olympus-basic"] { --project-color: #e6decc; --project-ink: #33352a; --project-muted: #61604e; }
-[data-project="tree-climbing-robot"] { --project-color: #e4ddc9; --project-ink: #33352a; --project-muted: #61604e; }
+[data-project="tree-climbing-robot"] { --project-color: #cbd1bb; --project-ink: #33352a; --project-muted: #61604e; }
 .gallery-project .project-caption { background: var(--project-color); color: var(--project-ink); border-radius: 0 0 18px 18px; padding-inline: 20px; border-color: transparent; }
 .gallery-project .project-caption .eyebrow, .gallery-project .project-summary { color: var(--project-muted); }
 .project-title-card { background: var(--project-color); color: var(--project-ink); padding: clamp(24px, 4vw, 64px); border-radius: 24px; margin-bottom: 32px; }
@@ -2131,29 +2131,31 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 :is(.catalog-card, .catalog-marsh-heading, .marsh-competition-card, .marsh-team-link, .marsh-home-badge, .profile-panel-media):is(:hover, :focus-visible) { text-decoration: none; }
 :is(.catalog-card, .catalog-marsh-heading, .marsh-competition-card, .marsh-team-link, .marsh-home-badge):is(:hover, :focus-visible) :is(h2,h3) { text-decoration: underline; text-underline-offset: .2em; }
 .catalog-card span, .marsh-competition-card span { text-decoration: none; }
-.hex-image-button { cursor: zoom-in; }
-.hex-image-button img { transition: transform 450ms ease; }
-.hex-image-button:is(:hover, :focus-visible) img { transform: scale(1.035); }
+.hex-image-button { cursor: zoom-in; transition: transform 450ms ease; }
+.hex-image-button:is(:hover, :focus-visible) { transform: scale(1.025); }
 
 /* Colour photography with a soft paper fade behind the copy. */
 .exo-human-banner .hex-disaster-image { filter: none; object-position: center; }
 .exo-human-banner::before { background: linear-gradient(90deg, transparent 0%, #f0ebdf18 38%, #f0ebdfcc 65%, #f0ebdff5 100%); }
-.ibm-board-preview { height: auto; aspect-ratio: 16 / 9; overflow: hidden; }
-.ibm-board-preview img { width: 100%; height: 100%; object-fit: contain; transition: transform 450ms ease; }
-.ibm-board-preview:is(:hover, :focus-visible) img { transform: scale(1.025); }
+.ibm-board-preview { height: auto; aspect-ratio: 16 / 9; overflow: hidden; transition: transform 450ms ease; }
+.ibm-board-preview img { width: 100%; height: 100%; object-fit: contain; }
+.ibm-board-preview:is(:hover, :focus-visible) { transform: scale(1.025); }
 
-/* Brackets label each phase once, with linked numbered touchpoints. */
-.ibm-touchpoint-timeline { display: grid; gap: 40px; margin-top: 32px; }
-.ibm-timeline-group { min-width: 0; border: 0; border-top: 1px solid #9d8c78; margin: 0; padding: 32px 0 0; position: relative; }
-.ibm-timeline-group::before, .ibm-timeline-group::after { content: ""; position: absolute; top: 0; height: 16px; border-left: 1px solid #9d8c78; }
-.ibm-timeline-group::before { left: 0; } .ibm-timeline-group::after { right: 0; }
-.ibm-timeline-group legend { padding: 0 20px; margin-inline: auto; font-size: 1.25rem; color: #c7baaa; }
-.ibm-timeline-group ol { list-style: none; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px; margin: 0; padding: 0; }
-.ibm-timeline-group li { position: relative; min-width: 0; }
-.ibm-timeline-group li:not(:last-child)::after { content: ""; position: absolute; left: 44px; right: -24px; top: 21px; border-top: 1px solid #665748; }
+/* One continuous workflow with a bracket for each phase. */
+.ibm-workflow { padding-top: 40px; }
+.ibm-workflow-scroll { overflow-x: auto; margin-top: 32px; padding-bottom: 16px; }
+.ibm-workflow-timeline { min-width: 1120px; }
+.ibm-workflow-phases { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.ibm-workflow-phases span { position: relative; text-align: center; border-bottom: 1px solid #9d8c78; padding-bottom: 12px; color: #c7baaa; font-size: 1.25rem; }
+.ibm-workflow-phases span::before, .ibm-workflow-phases span::after { content: ""; position: absolute; bottom: -12px; height: 12px; border-left: 1px solid #9d8c78; }
+.ibm-workflow-phases span::before { left: 0; }
+.ibm-workflow-phases span::after { right: 0; }
+.ibm-workflow-timeline ol { position: relative; list-style: none; display: grid; grid-template-columns: repeat(8,minmax(0,1fr)); gap: 24px; margin: 0; padding: 0; }
+.ibm-workflow-timeline ol::before { content: ""; position: absolute; left: 22px; right: calc((100% - 168px) / 8 - 22px); top: 22px; border-top: 1px solid #665748; }
+.ibm-workflow-timeline li { position: relative; min-width: 0; }
 .ibm-timeline-node { position: relative; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #9d8c78; border-radius: 50%; background: #382e25; font-size: 1rem; }
-.ibm-timeline-group h4 { font-size: 1.375rem; font-weight: 400; line-height: 1.3; margin: 16px 0 8px; }
-.ibm-timeline-group p { font-size: 1.125rem; line-height: 1.4; margin: 0; }
+.ibm-workflow-timeline h4 { font-size: 1.25rem; font-weight: 400; line-height: 1.3; margin: 16px 0 8px; }
+.ibm-workflow-timeline p { font-size: 1.125rem; line-height: 1.4; margin: 0; }
 @media (max-width: 800px) {
   .exo-human-banner .hex-disaster-image { opacity: 1; }
   .exo-human-banner::before { display: none; }
@@ -2168,18 +2170,9 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .hex-carousel-pair .hex-carousel-container { display: flex; justify-content: flex-start; gap: 0; }
   .hex-carousel-pair .hex-carousel-slide { flex: 0 0 80vw; width: 80vw; padding: 0 12px; }
   .hex-carousel-pair .hex-carousel-track { padding: 0; }
-  .ibm-timeline-group { border: 0; border-left: 1px solid #9d8c78; padding: 0 0 0 24px; }
-  .ibm-timeline-group legend { margin: 0 0 20px; padding: 0 12px; }
-  .ibm-timeline-group::before, .ibm-timeline-group::after { border-left: 0; border-top: 1px solid #9d8c78; width: 16px; height: 0; left: 0; right: auto; }
-  .ibm-timeline-group::after { top: auto; bottom: 0; }
-  .ibm-timeline-group ol { grid-template-columns: 1fr; gap: 24px; }
-  .ibm-timeline-group li { padding-left: 60px; min-height: 64px; }
-  .ibm-timeline-node { position: absolute; left: 0; top: 0; }
-  .ibm-timeline-group li:not(:last-child)::after { left: 21px; right: auto; top: 44px; bottom: -24px; border-top: 0; border-left: 1px solid #665748; }
-  .ibm-timeline-group h4 { margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hex-image-button img, .ibm-board-preview img { transition: none; }
+  .hex-image-button, .ibm-board-preview { transition: none; }
 }
 
 @media (min-width: 1000px) {
@@ -2188,3 +2181,27 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   .project-story-shell .document-main { padding-top: 50.4px; }
 }
 .marsh-team-link:is(:hover, :focus-visible) .linked-title { text-decoration: underline; text-underline-offset: .2em; }
+
+/* Grow the entire frame with breathing room, rather than crop a zoomed image. */
+.hex-carousel .hex-image-button { height: auto; min-height: 0; aspect-ratio: var(--gallery-ratio, 1.5); padding: 10px; }
+.hex-carousel-track { padding-block: 14px; }
+.hex-carousel-pair .hex-carousel-track { padding-block: 14px 24px; }
+.ibm-workspace-gallery .hex-carousel-track { padding: 14px 0; }
+.ibm-workspace-gallery .hex-carousel-slide { padding-inline: 14px; }
+.ibm-workspace-gallery .hex-image-button { padding: 0; }
+.ibm-phone-gallery .hex-carousel .hex-image-button { height: clamp(420px, 42vw, 680px); aspect-ratio: auto; padding: 0; }
+.hex-carousel-controls .hex-carousel-arrow { top: calc(74px + (var(--build-frame-width) - 24px) / var(--gallery-ratio, 1.5) * .5); }
+.ibm-board-grid figure { padding: 10px; }
+.ibm-board-preview { padding: 8px; }
+.ibm-story .ibm-cv-note { margin-bottom: 0; }
+.ibm-story-hero { padding-top: clamp(20px, 2vw, 36px); align-items: start; }
+.ibm-story-hero .hex-hero-image { align-self: start; margin-top: clamp(48px, 5vw, 90px); }
+.page-enter { animation: hex-arrive 1s ease .15s both; }
+@media (max-width: 800px) {
+  .ibm-phone-gallery .hex-carousel .hex-image-button { height: 560px; max-height: 72svh; }
+  .ibm-story-hero .hex-hero-image { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter { animation: none; }
+  .hex-image-button:is(:hover, :focus-visible), .ibm-board-preview:is(:hover, :focus-visible) { transform: none; }
+}
