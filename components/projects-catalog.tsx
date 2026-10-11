@@ -22,7 +22,7 @@ export function ProjectsCatalog({projects}:{projects:Project[]}) {
     }}>{name}</button>)}</div>
     <div id="catalog-panel" role="tabpanel" aria-labelledby={`catalog-tab-${active}`}>
       {active===0 && <div className="catalog-grid">{projects.filter(p=>!p.slug.startsWith("olympus-")).map(p=><CatalogCard key={p.slug} project={p}/>)}</div>}
-      <section className="catalog-marsh-group" aria-labelledby="catalog-marsh-title"><Link className="catalog-marsh-heading" href="/marshgazers"><img src="/media/marshgazers/logo.png" alt="" width={2048} height={962}/><div><p className="eyebrow">One team / Two rover missions</p><h2 id="catalog-marsh-title">MarshGazers</h2><p>Meet the team and follow our progression from reconnaissance to planetary sampling. <InlineArrow /></p></div></Link><div className="catalog-grid">{rovers.map(p=><CatalogCard key={p.slug} project={p}/>)}</div></section>
+      <section className="catalog-marsh-group" aria-labelledby="catalog-marsh-title"><Link className="catalog-marsh-heading" href="/marshgazers"><img src="/media/marshgazers/logo-purple.png" alt="" width={2048} height={962}/><div><p className="eyebrow">One team / Two rover missions</p><h2 id="catalog-marsh-title">MarshGazers</h2><p>Meet the team and follow our progression from reconnaissance to planetary sampling. <InlineArrow /></p></div></Link><div className="catalog-grid">{rovers.map(p=><CatalogCard key={p.slug} project={p}/>)}</div></section>
     </div>
   </article>;
 }
