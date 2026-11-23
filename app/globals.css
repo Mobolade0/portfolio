@@ -1518,7 +1518,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .profile-tab-label { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 7px 8px; line-height: 1.15; }
 .profile-tab-ink { position: absolute; inset: 0; color: #211d19; pointer-events: none; }
 .profile-learn-more { display: inline-flex; gap: 8px; align-items: center; margin-top: 18px; min-height: 44px; color: inherit; font-size: 1.125rem; text-underline-offset: 5px; }
-.site-nav a { font-family: "Askino", Georgia, serif; font-feature-settings: "ss01" 1; font-weight: 400; font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.15; }
+.site-nav .site-name { font-family: "Askino", Georgia, serif; font-feature-settings: "ss01" 1; font-weight: 400; font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.15; }
 .ibm-experience-intro { padding: clamp(24px, 4vw, 64px); background: #e4ddc9; color: #211d19; border-radius: 24px; margin-bottom: 32px; }
 .ibm-experience-intro p { color: #494537; }
 .ibm-experience-page > img { display: block; width: 100%; height: auto; border-radius: 20px; }
@@ -2216,4 +2216,13 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 html, body {
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+}
+
+/* Recoleta demo: keep standard letters in navigation.
+   The ss01 alternates for a/e contain the demo mark. Prior .site-nav a
+   styling enabled ss01 for all links, including the Recoleta navigation. */
+.home-navigation .home-navigation-links > a,
+.home-navigation .home-navigation-links > button {
+  font-variant-ligatures: none;
+  font-feature-settings: "ss01" 0, "liga" 0, "clig" 0, "dlig" 0;
 }
