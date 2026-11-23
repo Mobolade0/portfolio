@@ -2226,3 +2226,6 @@ html, body {
   font-variant-ligatures: none;
   font-feature-settings: "ss01" 0, "liga" 0, "clig" 0, "dlig" 0;
 }
+
+/* Keep the lightbox close icon centred and independent of font glyphs. */
+.hex-lightbox-close { display: grid; place-items: center; padding: 0; }

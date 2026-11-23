@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import type { Media } from "@/content/types";
 
 export type BuildFrame = { media: Media; title: string; caption: string; context: string };
@@ -77,7 +77,7 @@ export function BuildCarousel({ frames, label, pair = false }: { frames: BuildFr
     <dialog className="hex-lightbox" ref={dialog} aria-labelledby={`${previewId}-title`} aria-describedby={`${previewId}-context`}
       onCancel={event => { event.preventDefault(); setSelected(null); }}
       onClick={event => { if (event.target === event.currentTarget) setSelected(null); }}>
-      <button type="button" className="hex-lightbox-close" aria-label="Close photo preview" onClick={() => setSelected(null)} autoFocus>×</button>
+      <button type="button" className="hex-lightbox-close" aria-label="Close photo preview" onClick={() => setSelected(null)} autoFocus><X size={24} strokeWidth={1.75} aria-hidden="true" /></button>
       {selected && <figure>
         <img src={selected.media.src} alt={selected.media.alt} width={selected.media.width} height={selected.media.height} />
         <figcaption><h2 id={`${previewId}-title`}>{selected.title}</h2><p id={`${previewId}-context`}>{selected.context}</p></figcaption>
