@@ -1013,12 +1013,12 @@ select {
   font-display: swap;
 }
 
-/* Orange Avenue headings and navigation. */
+/* Askino headings and navigation. */
 h1, h2, h3,
 .identity h1, .profile-copy h2,
 .document-main h1, .document-main h2, .document-main h3,
 .project-caption h3, .gallery-end p {
-  font-family: "Orange Avenue", Georgia, serif;
+  font-family: "Askino", Georgia, serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: normal;
@@ -1073,7 +1073,7 @@ html { scroll-padding-top: 5rem; }
   border: 0;
   border-right: 1px solid var(--border);
   border-radius: 0;
-  font-family: "Orange Avenue", Georgia, serif;
+  font-family: "Askino", Georgia, serif;
   font-weight: 400;
   font-style: normal;
   font-size: clamp(1.125rem, 1.7vw, 1.75rem);
@@ -1270,7 +1270,7 @@ html { scroll-padding-top: 5rem; }
 }
 
 
-/* Readable TW Cen text, with Orange Avenue alternate letters for the name. */
+/* Readable Tw Cen body text with Askino display headings. */
 body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .identity h1 { font-feature-settings: "ss01" 1; }
 .eyebrow, .image-note, .footer-note, .contact-pending small { font-size: 1rem; }
@@ -1371,7 +1371,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
   border: 0;
   border-right: 1px solid var(--border);
   border-radius: 0;
-  font-family: "Orange Avenue", Georgia, serif;
+  font-family: "Askino", Georgia, serif;
   font-size: clamp(1.0625rem, 1.6vw, 1.625rem);
   font-weight: 400;
   line-height: 1;
@@ -1524,7 +1524,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 .profile-tab-label { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 7px 8px; line-height: 1.15; }
 .profile-tab-ink { position: absolute; inset: 0; color: #211d19; pointer-events: none; }
 .profile-learn-more { display: inline-flex; gap: 8px; align-items: center; margin-top: 18px; min-height: 44px; color: inherit; font-size: 1.125rem; text-underline-offset: 5px; }
-.site-nav a { font-family: "Orange Avenue", Georgia, serif; font-feature-settings: "ss01" 1; font-weight: 400; font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.15; }
+.site-nav a { font-family: "Askino", Georgia, serif; font-feature-settings: "ss01" 1; font-weight: 400; font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.15; }
 .ibm-experience-intro { padding: clamp(24px, 4vw, 64px); background: #e4ddc9; color: #211d19; border-radius: 24px; margin-bottom: 32px; }
 .ibm-experience-intro p { color: #494537; }
 .ibm-experience-page > img { display: block; width: 100%; height: auto; border-radius: 20px; }
@@ -1589,7 +1589,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 
 /* The same case-study rhythm, shaped around the exoskeleton's human purpose. */
 .exoskeleton-study .hex-hero { background: #f0ebdf; border: 1px solid #cec5b1; }
-.exoskeleton-study h1 { font-family: "Orange Avenue Outline", "Orange Avenue", Georgia, serif; font-size: clamp(3rem, 7.1vw, 9rem); line-height: 1.05; text-wrap: balance; }
+.exoskeleton-study h1 { font-family: "Askino", Georgia, serif; font-size: clamp(3rem, 7.1vw, 9rem); line-height: 1.05; text-wrap: balance; }
 .exoskeleton-study .hex-summary { font-size: clamp(1.25rem, 1.7vw, 1.875rem); }
 .exo-human-banner { display: grid; grid-template-columns: 55% 45%; min-height: 0; background: #f0ebdf; }
 .exo-human-banner .hex-disaster-image { position: static; z-index: auto; width: 100%; height: auto; object-fit: contain; object-position: center; align-self: center; filter: none; opacity: 1; }
@@ -1640,7 +1640,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 /* A distinct, compact exoskeleton opening with a filled display title. */
 .exoskeleton-study .hex-hero { background: #d8d8bb; border-color: #b7ba98; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); min-height: 0; align-items: start; }
 .exoskeleton-study .hex-intro { padding-top: clamp(16px, 3vw, 56px); }
-.exoskeleton-study h1 { font-family: "Orange Avenue", Georgia, serif; font-size: clamp(3rem, 7.8vw, 9.75rem); }
+.exoskeleton-study h1 { font-family: "Askino", Georgia, serif; font-size: clamp(3rem, 7.8vw, 9.75rem); }
 .exoskeleton-study .hex-hero-image img { max-height: min(680px, 72svh); object-fit: contain; }
 .exo-human-banner { display: flex; min-height: clamp(360px, 34vw, 560px); }
 .exo-human-banner .hex-disaster-image { position: absolute; inset: 0; z-index: -2; height: 100%; object-fit: cover; object-position: center 55%; filter: grayscale(1); }
@@ -1651,7 +1651,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 /* MarshGazers: a shared identity, with two distinct competition stories. */
 .marsh-logo-hero { padding: clamp(32px, 6vw, 96px) var(--hex-gutter) 56px; text-align: center; }
 .marsh-logo-hero > img { display: block; width: min(88vw, 1400px); height: auto; max-height: 58svh; object-fit: contain; margin: 0 auto 36px; }
-.marsh-logo-hero .marsh-tagline { font-family: "Orange Avenue", Georgia, serif; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.2; margin: 20px 0; }
+.marsh-logo-hero .marsh-tagline { font-family: "Askino", Georgia, serif; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.2; margin: 20px 0; }
 .marsh-logo-hero > a, .marsh-team-link, .rover-links a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; font-size: 1.25rem; color: inherit; text-underline-offset: 5px; }
 .marsh-team-link { margin-bottom: 24px; }
 .marsh-team-link img { width: 100px; height: auto; }
@@ -2204,4 +2204,14 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
 @media (prefers-reduced-motion: reduce) {
   .page-enter { animation: none; }
   .hex-image-button:is(:hover, :focus-visible), .ibm-board-preview:is(:hover, :focus-visible) { transform: none; }
+}
+
+
+/* Askino is used for display text; Tw Cen MT remains the body font. */
+@font-face {
+  font-family: "Askino";
+  src: url("/fonts/Askino-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
