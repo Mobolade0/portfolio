@@ -7,6 +7,9 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  /* Allow only audited basic Latin glyphs. Symbols, ligatures, and accents
+     use Georgia rather than the demo font's replacement artwork. */
+  unicode-range: U+0020-0024, U+0026-003B, U+003F-005A, U+0061-007A;
 }
 @font-face {
 
@@ -54,7 +57,7 @@ body {
   font-family: "Recoleta", Georgia, "Times New Roman", serif;
   font-weight: 400;
   font-variant-ligatures: none;
-  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss01" 0, "salt" 0;
   font-size: 1rem;
   line-height: 1.6;
 
@@ -2215,7 +2218,7 @@ body { font-size: clamp(1.125rem, 1.25vw, 1.5rem); }
    This leaves the font file unchanged and preserves the words as typed. */
 html, body {
   font-variant-ligatures: none;
-  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "ss01" 0, "salt" 0;
 }
 
 /* Recoleta demo: keep standard letters in navigation.
